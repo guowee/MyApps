@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory 
+        android:title="单选列表"
+        android:layout="@layout/prefs_category_widget" >
+        <CheckBoxPreference
+            android:icon="@drawable/appstore"
+            android:key="android_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="Android"
+            android:widgetLayout="@layout/checkbox_prefs02_widget" />
+        <CheckBoxPreference
+            android:icon="@drawable/appstore"
+            android:key="ios_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="IOS"
+            android:widgetLayout="@layout/checkbox_prefs02_widget" />
+        <CheckBoxPreference
+            android:icon="@drawable/appstore"
+            android:key="wp_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="Windows Phone"
+            android:widgetLayout="@layout/checkbox_prefs02_widget" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/prefs_category_widget"
+        android:title="多选列表" >
+        <CheckBoxPreference
+            android:icon="@drawable/itunes"
+            android:key="java_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="Java"
+            android:widgetLayout="@layout/checkbox_prefs03_widget" />
+        <CheckBoxPreference
+            android:icon="@drawable/itunes"
+            android:key="c_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="C"
+            android:widgetLayout="@layout/checkbox_prefs03_widget" />
+        <CheckBoxPreference
+            android:icon="@drawable/itunes"
+            android:key="js_prefs"
+            android:layout="@layout/prefs_list_s_item"
+            android:title="JavaScript"
+            android:widgetLayout="@layout/checkbox_prefs03_widget" />
+    </PreferenceCategory>
+    <!-- 最后一行的分割线 -->
+    <PreferenceCategory android:layout="@layout/prefs_category_end_widget" />
+
+</PreferenceScreen>
