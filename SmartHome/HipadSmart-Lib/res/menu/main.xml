@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/menu_photo_size"
+        android:showAsAction="never"
+        android:title="@string/menu_photo_size"/>
+    <item
+        android:id="@+id/menu_video_size"
+        android:showAsAction="never"
+        android:title="@string/menu_video_size"/>
+    <item
+        android:id="@+id/menu_video_length_per_file"
+        android:showAsAction="never"
+        android:title="@string/menu_video_length_per_file"/>
+    <!-- 
+    <item
+        android:id="@+id/menu_snapshot_freq"
+        android:showAsAction="never"
+        android:title="@string/snapshot_freq"/>
+    -->
+</menu>

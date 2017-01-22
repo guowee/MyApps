@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Drive Recorder</string>
+    <string name="app_name2">DR Folder</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_photo_size">Photo Size</string>
+    <string name="menu_video_size">Video Size</string>
+    <string name="photo_resolution">Photo Resolution</string>
+    <string name="video_resolution">Video Resolution</string>
+    <string name="cancel">Cancel</string>
+    <string name="menu_video_length_per_file">Video length per file</string>
+    <string name="open_camera_fail">Open camera fail</string>
+    <string name="ok">OK</string>
+    <string name="snapshot_freq">Snapshot frequency</string>
+    <string name="disk_space_too_small">Available disk space is less than 8MB</string>
+    <string name="video">Video</string>
+    <string name="photo">Photo</string>
+    <string name="unknown_format">Unknown format</string>
+    <string name="one_item_selected">One item selected</string>
+    <string name="n_items_selected">%1$d items selected</string>
+    <string name="lock">Lock</string>
+    <string name="unlock">Unlock</string>
+    <string name="invalid_tf_size">TF card size is too small, cancel video recording.</string>
+    <string name="tf_not_exist">Please insert TF card</string>
+    <string name="msg_text_video">Video</string>
+	<string name="msg_text_audio">Audio</string>
+	<string name="msg_text_photo">Photo</string>
+	<string name="msg_text_ok">OK</string>
+	<string name="msg_text_exit">Exit</string>
+	<string name="msg_text_preview">Prev</string>
+</resources>

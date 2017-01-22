@@ -1,0 +1,92 @@
+package com.haomee.adapter;
+
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.haomee.entity.Radar_Category;
+import com.haomee.liulian.R;
+import com.haomee.util.ViewUtil;
+import com.haomee.util.imageloader.ImageLoaderCharles;
+import com.haomee.view.FancyCoverFlow;
+import com.haomee.view.FancyCoverFlowAdapter;
+
+public class FlowTypesAdapter2 extends FancyCoverFlowAdapter {
+
+	public List<Radar_Category> topicTypes;
+	private Context context;
+	private int screen_width;
+	private int item_width;
+	private int title_width;
+	private RelativeLayout.LayoutParams layout_params;
+	public FlowTypesAdapter2() {
+		
+	}
+
+	public FlowTypesAdapter2(Context context, List<Radar_Category> topicTypes) {
+		this.topicTypes = topicTypes;
+		this.context = context;
+
+		DisplayMetrics dm = new DisplayMetrics();
+		((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(dm);
+		screen_width = dm.widthPixels;
+		item_width = ViewUtil.dip2px(context, 80);
+		title_width= ViewUtil.dip2px(context, 25);
+		layout_params=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+	}
+
+	@Override
+	public int getCount() {
+		return Integer.MAX_VALUE;
+	}
+
+	@Override
+	public Object getItem(int i) {
+		return topicTypes.get(i % topicTypes.size());
+	}
+
+	@Override
+	public long getItemId(int i) {
+		return i;
+	}
+
+	@Override
+	public View getCoverFlowItem(final int i, View reuseableView, ViewGroup viewGroup) {
+
+		View view = null;
+
+		if (reuseableView != null) {
+			view = reuseableView;
+		} else {
+
+			if (topicTypes != null) {
+
+				view = LayoutInflater.from(context).inflate(R.layout.item_topic_type2, null);
+				ImageView item_img = (ImageView) view.findViewById(R.id.item_img);
+				TextView item_title=(TextView) view.findViewById(R.id.item_title);
+				ViewGroup.LayoutParams params_img = item_img.getLayoutParams();
+				
+				params_img.width = item_width;
+				params_img.height = params_img.width;
+				item_img.setLayoutParams(params_img);
+				
+				layout_params.width=item_width;
+				layout_params.height=item_width+title_width;
+				view.setLayoutParams(new FancyCoverFlow.LayoutParams(layout_params));
+				
+				Radar_Category type = topicTypes.get(i % topicTypes.size());
+				item_title.setText(type.getName());
+				ImageLoaderCharles.getInstance(context).addTask(type.getPic(), item_img);
+			}
+		}
+		return view;
+	}
+}

@@ -1,0 +1,114 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="登录"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/class1" />
+
+        <ImageView
+            android:id="@+id/tv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@drawable/land_back" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="#d5d5d5" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <EditText
+            android:layout_width="0dip"
+            android:layout_height="0dip" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="46dp"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="电话号码"
+            android:numeric="integer"
+            android:textColor="#555555"
+            android:textColorHint="#c4c4c4"
+            android:textSize="@dimen/class2" >
+        </EditText>
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_below="@+id/et_phone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="30dip"
+            android:layout_marginRight="30dip"
+            android:layout_marginTop="5dp"
+            android:background="#fe7777" />
+
+        <EditText
+            android:id="@+id/et_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_phone"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:ems="10"
+            android:gravity="center_vertical|center_horizontal"
+            android:hint="用户密码"
+            android:password="true"
+            android:textColor="#555555"
+            android:textColorHint="#c4c4c4"
+            android:textSize="@dimen/class2" >
+        </EditText>
+
+
+        <ImageView
+            android:id="@+id/iv_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_pass"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/land_button_submit" />
+
+        <TextView
+            android:id="@+id/tv_find_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_submit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="忘记密码？"
+            android:textColor="#ff7777"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</LinearLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/activity_login.xml -->

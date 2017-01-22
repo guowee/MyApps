@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/viewLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/logImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/smarthome" />
+
+    <RelativeLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="300dp"
+        android:layout_height="340dp"
+        android:layout_below="@+id/logImg"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/loginbg_610_610"
+        android:padding="30dp"
+         >
+
+        <RelativeLayout
+            android:id="@+id/nameLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/inputbox_after_453_95" >
+
+            <ImageView
+                android:id="@+id/nameImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/icousern_45_45" />
+
+            <EditText
+                android:id="@+id/nameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/nameImg"
+                android:background="@color/transparent"
+                android:hint="@string/sign_name_hint"
+                android:singleLine="true"
+                android:textColorHint="@color/login_hint_txt"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/emailLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameLayout"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/inputbox_after_453_95" >
+
+            <ImageView
+                android:id="@+id/emailImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/icoemail43_43" />
+
+            <EditText
+                android:id="@+id/emailEdit"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/emailImg"
+                android:background="@color/transparent"
+                android:hint="@string/sign_email_hint"
+                android:singleLine="true"
+                android:textColorHint="@color/login_hint_txt"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/passLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailLayout"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/inputbox_after_453_95" >
+
+            <ImageView
+                android:id="@+id/passImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/icopassw_43_43" />
+
+            <RelativeLayout
+                android:id="@+id/switchBtn"
+                android:layout_width="40dp"
+                android:layout_height="25dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                />
+            
+            <EditText
+                android:id="@+id/passEdit"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:layout_toRightOf="@+id/passImg"
+                android:layout_toLeftOf="@+id/switchBtn"
+                android:background="@color/transparent"
+                android:hint="@string/sign_pass_hint"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:textColorHint="@color/login_hint_txt"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passLayout"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="25dp" >
+
+            <ImageButton
+                android:id="@+id/signupBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/signup_btn_selector" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/sign_btn_text"
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

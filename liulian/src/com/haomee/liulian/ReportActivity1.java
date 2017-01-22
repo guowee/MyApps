@@ -1,0 +1,175 @@
+package com.haomee.liulian;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.haomee.consts.PathConst;
+import com.haomee.util.NetworkUtil;
+import com.haomee.view.MyToast;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+import com.sina.weibo.sdk.utils.LogUtil;
+
+public class ReportActivity1 extends BaseActivity	implements OnCheckedChangeListener,OnClickListener {
+
+	private String uid,my_id;
+
+	private TextView tv_title;
+	private EditText ed_report;
+	private ImageView iv_back;
+	private RadioGroup rg_group;
+	private RelativeLayout rl_comit;
+	private RadioButton rb_btn_1,rb_btn_2,rb_btn_3,rb_btn_4,rb_btn_5;
+	private String repotrMess,reportName;
+	
+	private int flag=-1;
+	private String mid;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_report2);
+		initView();
+		initData();
+		
+		
+	}
+	private void initData()
+	{
+		Intent intent=getIntent();
+		uid = intent.getStringExtra("uid");
+		flag=intent.getIntExtra("flag", -1);
+		mid=intent.getStringExtra("mid");
+	}
+	private void initView() {
+		
+		my_id = LiuLianApplication.current_user.getUid();
+
+		reportName =getIntent().getStringExtra("nickname");//获取举报用户名
+
+		ed_report=(EditText) findViewById(R.id.repotr1_content);
+		tv_title=(TextView) findViewById(R.id.report1_tv_titile);
+
+		iv_back=(ImageView) findViewById(R.id.report_iv_back);		
+		rl_comit=(RelativeLayout) findViewById(R.id.rv_comit);
+
+		rg_group=(RadioGroup) findViewById(R.id.rg_group);
+		rb_btn_1=(RadioButton) findViewById(R.id.rb_btn1);
+		rb_btn_2=(RadioButton) findViewById(R.id.rb_btn2);
+		rb_btn_3=(RadioButton) findViewById(R.id.rb_btn3);
+		rb_btn_4=(RadioButton) findViewById(R.id.rb_btn4);
+		rb_btn_5=(RadioButton) findViewById(R.id.rb_btn5);
+
+		tv_title.setText(reportName);//显示当前用户名
+
+		repotrMess=rb_btn_1.getText().toString();
+		rg_group.setOnCheckedChangeListener(this);
+		rl_comit.setOnClickListener(this);
+		iv_back.setOnClickListener(this);
+	}
+
+
+	/**
+	 * 提交按钮
+	 */
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.rv_comit:
+			if (!NetworkUtil.dataConnected(ReportActivity1.this)) {
+				MyToast.makeText(ReportActivity1.this, getResources().getString(R.string.no_network), Toast.LENGTH_SHORT).show();
+				return;
+			}else {
+				String url = PathConst.URL_REPORT_COMIT;		
+				RequestParams re = new RequestParams();
+
+				String title = ed_report.getText().toString().trim();
+
+				re.put("object_type", "1");
+				re.put("content", title);				
+				re.put("uid", my_id);
+				re.put("Luid", my_id);
+				re.put("object_id", uid);
+				re.put("type", repotrMess);
+				
+				
+				if(flag==1){
+					re.put("mid", mid);
+					re.put("mtype", "interest");
+				}
+				AsyncHttpClient asyncHttp = new AsyncHttpClient();
+
+				asyncHttp.get(url, re,new AsyncHttpResponseHandler(){
+					@Override
+					public void onSuccess(String arg1) {
+						super.onSuccess(arg1);
+						try {
+							JSONObject json = new JSONObject(arg1);
+							if(json==null||"".equals(json)){
+								Toast.makeText(ReportActivity1.this, "网络异常,请稍后重新提交!!", Toast.LENGTH_LONG).show();
+								return;//防止网络连接超时出现空指针异常
+							}
+							if (1 == json.optInt("flag")) {//提交成功
+								finish();
+								Toast.makeText(ReportActivity1.this, json.getString("msg"), Toast.LENGTH_LONG).show();
+							}
+							if(0==json.optInt("flag")){
+								Toast.makeText(ReportActivity1.this, json.getString("msg"), Toast.LENGTH_LONG).show();
+							}
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+
+			break;
+		case R.id.report_iv_back:
+			finish();
+			break;
+			
+		}
+
+	}
+
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		if(checkedId==rb_btn_1.getId()){//第一条
+
+			repotrMess=rb_btn_1.getText().toString();
+
+		}else if(checkedId==rb_btn_2.getId()){//第二条
+
+			repotrMess=rb_btn_2.getText().toString();
+
+		}else if(checkedId==rb_btn_3.getId()){//第三条
+
+			repotrMess=rb_btn_3.getText().toString();
+
+		}else if(checkedId==rb_btn_4.getId()){//第四条
+
+			repotrMess=rb_btn_4.getText().toString();
+
+		}else if(checkedId==rb_btn_5.getId()){//第五条
+
+			repotrMess=rb_btn_5.getText().toString();
+
+		}
+	}
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp" >
+
+    <ImageView
+        android:id="@+id/header_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_default" />
+
+    <ImageView
+        android:id="@+id/icon_float"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-40dp"
+        android:scaleType="matrix"
+        android:src="@drawable/discover_icon_00" />
+
+    <ImageView
+        android:id="@+id/anim_drag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="60dp"
+        android:src="@anim/discover_drag" />
+
+</RelativeLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/rec_head.xml -->

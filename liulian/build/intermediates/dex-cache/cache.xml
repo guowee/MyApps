@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/android_api_3_5.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="877c27959dca13f77e823a6b58d52ab7462e8a40">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/android_api_3_5-a02c416f75f63f7170da61470f3f138947efbf71.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/android-support-v4.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="bd6479f5dd592790607e0504e66e0f31c2b4d308">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/android-support-v4-ae05dad22a9dbfafc8c5fd187a00d96c5e631f52.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/weibosdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0786949655add977d225dfc3f7fb1097db31925b">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/weibosdk-653d84427cb9b4b0054e56bfe078ad22f2e6d83f.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/libammsdk.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ef29ec238e1bad6c47297595fada8d7a7d794ff0">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/libammsdk-d4cb6fb39bbf5acc3644e369e062aa5c4d260d5f.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/pushservice-4.4.0.71.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="9509cfa0c9817d0905fc6f9b0d417a4730884966">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/pushservice-4.4.0.71-6242e2d2c85356d27959240c2d910aa02b8772d4.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/apache-ant-zip.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="24421e247a1df88e1b83fa34af3d110fc153d010">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/apache-ant-zip-0692e15e9ce3670d5c760d946e80bc3bfeda4306.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/weibosdkcore.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="94471fb40a1a2175b5993cdf0af0b8e59ed29fb3">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/weibosdkcore-7a2a3fe82c34ef63ff020b4d52a8a9cfda01207c.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/open_sdk_r3922.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="13a285c4f1d9008a90c2f55cf083de391c5dd7ef">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/open_sdk_r3922-45658888759b914028a710d551e1da12b03b2a92.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/mta-sdk-1.6.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c184c69f43b1fe46390f7123717c65bd844bccb6">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/mta-sdk-1.6.2-ad9e5b10d175f26c9e7a8e5f6caca2da46b1b6b0.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/AndroidSwipeLayout-v1.1.6.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ebc31c290b523f79c57859c3fcc1b398ffcdf082">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/AndroidSwipeLayout-v1.1.6-144d28ef7b2aec9e2d523a641d5f20ba4634382c.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/BaiduLBS_Android.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4e68b436e82fdc70ebf4a154a0d70f518035638f">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/BaiduLBS_Android-6eb2684108ec2947dc23e0542b6858879c7c05d8.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/android-async-http-1.4.3.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f70e680861fdf9449819003e7799a4e9aca047f8">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/android-async-http-1.4.3-2988fdddb0aa7100c034f56fe4e21971dea19521.jar" />
+    </item>
+    <item
+        jar="/Users/idea/Documents/资料/泰元项目/liulian/libs/easemobchat_2.1.6.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="8e8d848aa176bb7a780961128d0018996b24e0a3">
+        <dex dex="/Users/idea/Documents/资料/泰元项目/liulian/build/intermediates/pre-dexed/debug/easemobchat_2.1.6-c46132db91ab79887abdcc811a101bba8974d20d.jar" />
+    </item>
+
+</items>

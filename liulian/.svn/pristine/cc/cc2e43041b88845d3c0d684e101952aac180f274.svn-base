@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_del"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:paddingBottom="1dp" >
+
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/l_del_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:weightSum="10" >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="#C6C6CC" >
+
+                <TextView
+                    android:id="@+id/top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30dip"
+                    android:paddingRight="30dip"
+                    android:text="置顶"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="#FD3E35" >
+
+                <TextView
+                    android:id="@+id/delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="30dip"
+                    android:paddingRight="30dip"
+                    android:text="删除"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+          <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="0dip"
+                android:layout_height="45dp"
+                android:layout_marginTop="10dip"
+                android:layout_marginBottom="10dip"
+                android:visibility="invisible"
+                android:src="@drawable/item_icon" /> 
+
+            <TextView
+                android:id="@+id/item_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/item_name"
+                android:layout_below="@+id/item_name"
+                android:layout_marginTop="5dp"
+                android:layout_toLeftOf="@+id/item_count"
+                android:singleLine="true"
+                android:text="描述"
+                android:textColor="#dadada"
+                android:textSize="@dimen/class4" />
+
+            <TextView
+                android:id="@+id/item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toLeftOf="@+id/text_right"
+                android:text="453"
+                android:textColor="@color/main_color"
+                android:textSize="@dimen/class3" />
+
+            <TextView
+                android:id="@+id/text_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="5dp"
+                android:text="Content"
+                android:textColor="#dadada"
+                android:textSize="@dimen/class3" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/item_image"
+                android:layout_marginLeft="8dp"
+                android:layout_toLeftOf="@+id/item_count"
+                android:layout_toRightOf="@+id/item_image"
+                android:singleLine="true"
+                android:text="话题"
+                android:textColor="#969696"
+                android:textSize="@dimen/class2" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignLeft="@+id/item_name"
+                android:layout_below="@+id/item_image"
+                android:background="#c7c7c7" />
+        </RelativeLayout>
+    </com.daimajia.swipe.SwipeLayout>
+
+</LinearLayout>

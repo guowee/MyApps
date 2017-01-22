@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="294dip"
+        android:layout_height="433dp"
+        android:background="@drawable/setbg_588_620" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:text="@string/appointment_param_set"
+            android:textColor="@color/login_forget_txt"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/name_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="23dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:singleLine="true"
+                android:text="@string/appointment_name"
+                android:textColor="@color/login_forget_txt" />
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inputbox_after_453_95"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textSize="12sp"
+                android:maxLength="14" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tmp_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tmp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/appointment_tmp"
+                android:textColor="@color/login_forget_txt" />
+
+            <EditText
+                android:id="@+id/edit_tmp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inputbox_after_453_95"
+                android:gravity="center"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/warm_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tmp_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/warm_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/appointment_warm"
+                android:textColor="@color/login_forget_txt" />
+
+            <EditText
+                android:id="@+id/edit_warm_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inputbox_after_453_95"
+                android:gravity="center"
+                android:singleLine="true" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/appoint_dateview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/warm_view"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/appoint_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/appointment_time"
+                android:textColor="@color/login_forget_txt" />
+
+            <EditText
+                android:id="@+id/edit_appoint_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inputbox_after_453_95"
+                android:gravity="center"
+                android:singleLine="true" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/appoint_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appoint_dateview"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/appoint_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="@string/appointment_time"
+                android:textColor="@color/login_forget_txt" />
+
+            <EditText
+                android:id="@+id/edit_appoint_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/inputbox_after_453_95"
+                android:gravity="center"
+                android:singleLine="true" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appoint_view"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dip"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/popview_btn_left"
+                android:text="@string/appointment_cancel" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="?android:attr/listDivider"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_confirm"
+                android:layout_width="0dip"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:background="@drawable/popview_btn_right"
+                android:text="@string/appointment_confirm" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

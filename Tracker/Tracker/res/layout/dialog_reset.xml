@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/factory_reset"
+        android:textColor="#000000"
+        android:textSize="22sp" />
+   <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/dialog_line" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+      >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textColor="#000000"
+            android:text="@string/input_imei"
+            android:textSize="18sp" />
+        <EditText 
+            android:id="@+id/reset_imei"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:numeric="integer"
+            android:maxLength="16"
+            android:background="@drawable/dialog_input"
+            />
+    </LinearLayout>
+ <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/dialog_line" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_weight="1"
+    android:orientation="horizontal" >
+
+    <Button
+        android:id="@+id/dialog_button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textSize="22dp" />
+
+    <Button
+        android:id="@+id/dialog_button_reset"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+         android:background="@null"
+         android:textColor="#3DD0C0"
+         android:textSize="22dp"
+        android:text="@string/reset" />
+</LinearLayout>
+  
+</LinearLayout>

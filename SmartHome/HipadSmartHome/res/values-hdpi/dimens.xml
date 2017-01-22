@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zxing_window_min_width">130.0dip</dimen>
+    <dimen name="zxing_window_min_height">120.0dip</dimen>
+    <dimen name="zxing_window_max_width">180.0dip</dimen>
+    <dimen name="zxing_window_max_height">160.0dip</dimen>
+    <dimen name="item_image_width">101dp</dimen>
+    <dimen name="item_image_height">101dp</dimen>
+    <dimen name="item_image_padding">8.0dip</dimen>
+    <dimen name="item_image_marginLeft">27dp</dimen>
+    
+</resources>

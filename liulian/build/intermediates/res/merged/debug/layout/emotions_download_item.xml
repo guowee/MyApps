@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp" >
+
+        <ImageView
+            android:id="@+id/iv_emotions_cover"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:background="@null"
+            android:src="@drawable/item_default" />
+
+        <ImageView
+            android:id="@+id/is_new_emotions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            android:src="@drawable/face_icon_new" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/fram_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="20dp" >
+
+            <ProgressBar
+                android:id="@+id/pb_emotions_progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_marginTop="10dp"
+                 android:paddingRight="13dp"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progressDrawable="@drawable/progress_bar_download"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_emotions_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_loading_kuang"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:text="下载"
+                android:textColor="#7f000000"
+                android:textSize="14sp"
+                android:visibility="gone" />
+            <ImageView
+                android:id="@+id/iv_emotions_load"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/face_button_download"
+                android:paddingBottom="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tv_emotions_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_emotions_cover"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/iv_emotions_cover"
+            android:text="name"
+            android:textColor="#545454"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_emotions_context"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_emotions_name"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/iv_emotions_cover"
+            android:layout_toLeftOf="@+id/fram_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:text="描述"
+            android:textColor="#929292"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#cccccc" />
+
+</LinearLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/emotions_download_item.xml -->

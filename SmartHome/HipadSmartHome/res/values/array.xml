@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="cook_roomwheel_item">
+        <item>客厅</item>
+        <item>卧室</item>
+        <item>厨房</item>
+        <item>所有</item>
+    </string-array>
+    
+    <string-array name="cook_floorwheel_item">
+        <item>无</item>
+        <item>一楼</item>
+        <item>二楼</item>
+        <item>所有</item>
+    </string-array>
+    
+    <string-array name="room_items">
+        <item>Hall</item>
+        <item>Bedr</item>
+        <item>Ketc</item>
+    </string-array>
+    
+    <string-array name="floor_items">
+        <item>B 1</item>
+        <item>F 1</item>
+        <item>F 2</item>
+        <item>F 3</item>
+    </string-array>
+    
+    <string-array name="type_title_item">
+        <item>环境调节</item>
+        <item>饮食起居</item>
+        <item>健康监测</item>
+        <item>安全防范</item>
+        <item>全部家电</item>
+    </string-array>
+    
+    <string-array name="navi_logo_itemtxt1">
+        <item>智能环境监测</item>
+        <item>饮食管家好帮手</item>
+        <item>智能健康产品</item>
+        <item>安防整体方案</item>
+        <item>娱乐随相伴</item>
+    </string-array>
+    
+    <string-array name="navi_logo_itemtxt2">
+        <item>室内新风 智能环保 居室温度 随心变换</item>
+        <item>下班路上 远程遥控 智能厨师 随时恭候</item>
+        <item>实时观测体能状态 摆脱亚健康</item>
+        <item>远程开锁 老人监护 报警提醒 一个都不少</item>
+        <item>游戏互动 音屏共享 成为可能</item>
+    </string-array>
+    
+</resources>

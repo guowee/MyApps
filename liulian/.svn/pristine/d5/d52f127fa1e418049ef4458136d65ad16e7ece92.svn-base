@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@android:id/background">		<!--最下层背景,这里采用自定义形状-->     
+        <shape>
+            <solid android:color="@color/proccess_background_1" />
+            <!-- <gradient
+                android:angle="270"
+                android:centerColor="@color/proccess_background_1"
+                android:centerY="0.45"
+                android:endColor="@color/proccess_background_1"
+                android:startColor="@color/proccess_background_1" /> -->
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+            <solid android:color="@color/proccess_green" />               
+            <!-- <gradient
+                android:angle="270"
+                android:centerColor="@color/proccess_yellow"
+                android:centerY="0.45"
+                android:endColor="@color/proccess_yellow"
+                android:startColor="@color/proccess_yellow" /> -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>

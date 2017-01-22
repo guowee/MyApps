@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg"
+    android:padding="10dip"
+    android:orientation="vertical" >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/period"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/dialog_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:orientation="horizontal" >
+
+        <antistatic.spinnerwheel.WheelVerticalView
+            xmlns:wheelview="http://schemas.android.com/apk/res/com.hipad.tracker"
+            android:id="@+id/startWheel"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            wheelview:selectionDivider="@color/add_device_list_item_divider" />
+
+       <View 
+        android:layout_width="15dp"
+        android:layout_height="2dp"
+        android:background="@android:color/black"
+           />
+
+        <antistatic.spinnerwheel.WheelVerticalView
+            xmlns:wheelview="http://schemas.android.com/apk/res/com.hipad.tracker"
+            android:id="@+id/endWheel"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            wheelview:selectionDivider="@color/add_device_list_item_divider" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/dialog_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="18sp"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/confirm"
+            android:textColor="@color/dialog_confirm" 
+            android:textSize="18sp"/>
+    </LinearLayout>
+    
+
+</LinearLayout>

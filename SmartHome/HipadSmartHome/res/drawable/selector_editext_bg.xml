@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/inputbox_after_453_95" android:state_focused="true"/>
+    <item android:drawable="@drawable/inputbox_before_453_95" />
+</selector>

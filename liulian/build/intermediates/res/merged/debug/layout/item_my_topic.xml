@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dip"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/border_item_topic" >
+
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="0dip"
+            android:layout_height="45dp"
+            android:layout_margin="10dp"
+            android:visibility="invisible"
+            android:src="@drawable/item_icon" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/item_image"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@+id/item_count"
+            android:layout_toRightOf="@+id/item_image"
+            android:singleLine="true"
+            android:text="话题"
+            android:textColor="#969696"
+            android:textSize="@dimen/class2" />
+
+        <TextView
+            android:id="@+id/item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/item_name"
+            android:layout_below="@+id/item_name"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/item_count"
+            android:singleLine="true"
+            android:text="描述"
+            android:textColor="#dadada"
+            android:textSize="@dimen/class4" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignLeft="@+id/item_name"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/item_desc"
+            android:layout_marginTop="12dp"
+            android:background="#c7c7c7"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toLeftOf="@+id/text_right"
+            android:text="453"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/class3" />
+
+        <TextView
+            android:id="@+id/text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="5dp"
+            android:text="Content"
+            android:textColor="#dadada"
+            android:textSize="@dimen/class3" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.3dp"
+            android:layout_below="@+id/item_image"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#d5d5d5" >
+        </View>
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/item_my_topic.xml -->

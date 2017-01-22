@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/slidingtitle_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/titleLayout"
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
+        android:paddingTop="50dp" >
+
+        <RelativeLayout
+            android:id="@+id/envirType"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" >
+
+            <ImageButton
+                android:id="@+id/envirBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/typebtn_selector" />
+
+            <ImageView
+                android:id="@+id/envirTxtImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/type_envir_168_50" />
+
+            <ImageView
+                android:id="@+id/envirImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ico_envir_141_141" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/cookType"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" >
+
+            <ImageButton
+                android:id="@+id/cookBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/typebtn_selector" />
+
+            <ImageView
+                android:id="@+id/cookTxtImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/type_cook_168_50" />
+
+            <ImageView
+                android:id="@+id/cookImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ico_cook_141_141" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/healthType"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" >
+
+            <ImageButton
+                android:id="@+id/healthBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/typebtn_selector" />
+
+            <ImageView
+                android:id="@+id/healthTxtImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/type_health_168_50" />
+
+            <ImageView
+                android:id="@+id/healthImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ico_health_141_141" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/safeType"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" >
+
+            <ImageButton
+                android:id="@+id/safeBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/typebtn_selector" />
+
+            <ImageView
+                android:id="@+id/safeTxtImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/type_safe_168_50" />
+
+            <ImageView
+                android:id="@+id/safeImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ico_safe_141_141" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/playType"
+            android:layout_width="210dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" >
+
+            <ImageButton
+                android:id="@+id/playBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/typebtn_selector" />
+
+            <ImageView
+                android:id="@+id/playTxtImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/type_all_168_50" />
+
+            <ImageView
+                android:id="@+id/playImg"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/ico_all_141_141" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

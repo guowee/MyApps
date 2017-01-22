@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<devices>
+    <device category="1" name="空调"/>
+    <device category="2" name="净水机"/>
+    <device category="3" name="电扇"/>
+    <device category="4" name="冷风扇"/>
+    <device category="5" name="取暖器"/>
+    <device category="6" name="微波炉"/>
+    <device category="7" name="电磁炉"/>
+    <device category="8" name="电饭煲"/>
+    <device category="9" name="多头灶"/>
+    <device category="10" name="冰箱"/>
+    <device category="11" name="洗衣机"/>
+    <device category="12" name="咖啡机"/>
+    <device category="13" name="水壶"/>
+    
+    <device category="17" name="智能插座"/>    
+    
+    <device category="96" name="灯光调节"/>
+    <device category="97" name="音乐背景"/>
+    <device category="98" name="窗帘"/>    
+    
+    <device category="128" name="婴儿称"/>
+    <device category="129" name="血压仪"/>
+    <device category="130" name="心率计"/>
+    <device category="131" name="健康称"/>
+    <device category="132" name="智能手表"/>
+    <device category="133" name="智能手环"/>
+    
+    <device category="160" name="可视门铃"/>
+    <device category="161" name="烟雾报警器"/>
+    <device category="162" name="IpCamera"/>    
+    
+    <device category="32" name="电视机"/>
+    <device category="33" name="PC"/>
+    <device category="34" name="音箱"/>
+</devices>

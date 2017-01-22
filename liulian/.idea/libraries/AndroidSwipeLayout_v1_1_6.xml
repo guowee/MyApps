@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="AndroidSwipeLayout-v1.1.6">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/AndroidSwipeLayout-v1.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

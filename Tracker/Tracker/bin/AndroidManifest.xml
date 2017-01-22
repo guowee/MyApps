@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hipad.tracker"
+    android:versionCode="1"
+    android:versionName="1.1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="22" />
+   
+    <permission
+        android:name="com.hipad.tracker.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+    <!-- 添加访问手机状态的权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="com.hipad.tracker.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>  
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>  
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <application
+        android:name="com.hipad.tracker.MyApplication"
+        android:allowBackup="true"
+        android:fitsSystemWindows="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:persistent="true"
+        android:theme="@android:style/Theme.Holo.Light.NoActionBar">
+        <!-- android:theme="@android:style/Theme.Holo.Light.NoActionBar.TranslucentDecor" > -->
+        <activity
+            android:name="com.hipad.tracker.StartActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.LoginActivity"
+            android:screenOrientation="portrait"
+             >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.RegisterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.NavigationActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.AgreementActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.PasswordActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.GuideActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.ImeiNumberActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
+            android:windowSoftInputMode="stateAlwaysHidden">
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.BindingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.StepCountActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.SecurityNumberActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.SimNumberActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.BabyInfoActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.BabyInformSetActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.hipad.tracker.SystemSettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <receiver android:name="com.hipad.tracker.SystemSettingActivity$DownloadCompleteReceiver">
+             <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <action android:name="android.intent.action.DOWNLOAD_NOTIFICATION_CLICKED"/>
+            </intent-filter>
+        </receiver>
+        
+        <service android:name="com.hipad.tracker.update.AppUpgradeService"></service>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyB3YCKe-eTogIjDBdXqZ4-x79UpvAWwYpk" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <activity
+            android:name="com.hipad.tracker.MainTestActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+    </application>
+</manifest>

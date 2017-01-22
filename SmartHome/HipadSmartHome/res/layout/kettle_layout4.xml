@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/root_layout" />
+
+    <RelativeLayout
+        android:id="@+id/kettle_rl_notify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/titleBar"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible" >
+
+        <TextView
+            android:id="@+id/kettle_tv_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="14dp"
+            android:layout_toRightOf="@+id/kettle_imgv_tips"
+            android:text="Notify information"
+            android:textColor="#6E6E6E"
+            android:textSize="16dp" />
+
+        <ImageView
+            android:id="@+id/kettle_imgv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/ico_alert1" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/kettle_imgv_appointsign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/kettle_rl_notify"
+        android:layout_below="@+id/titleBar"
+        android:layout_marginRight="20dp"
+        android:src="@drawable/icon_appointment_60x50"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/graph_tds_container"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/kettle_rl_notify"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/doughnutchart_tds_default" >
+
+        <ImageView
+            android:id="@+id/image_Tds"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/doughnutchart_tds_default" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="22dp"
+            android:layout_marginRight="29dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="水质"
+                android:textColor="#6E6E6E"
+                android:textSize="14.5dp" />
+
+            <TextView
+                android:id="@+id/water_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="--"
+                android:textSize="19.5dp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/graph_temp_container"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/graph_tds_container"
+        android:layout_marginTop="-20dip"
+        android:layout_toLeftOf="@id/graph_tds_container"
+        android:background="@drawable/doughnutchart_temp_default" >
+
+        <ImageView
+            android:id="@+id/image_Temp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/doughnutchart_temp_default"
+            android:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/water_temp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="--"
+                    android:textSize="59dp" />
+
+                <TextView
+                    android:id="@+id/temp_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="℃"
+                    android:textColor="#6e6e6e"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/kettle_tv_workstate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-10dp"
+                android:gravity="center"
+                android:paddingLeft="-5dip"
+                android:paddingRight="-5dip"
+                android:text="空闲"
+                android:textColor="#6E6E6E"
+                android:textSize="19.5dp"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/statusImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dip"
+                android:background="@drawable/kettle_status"
+                android:visibility="invisible" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_below="@id/graph_temp_container"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/layout_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/kettle_imgv_scene_icon"
+                android:layout_width="75dip"
+                android:layout_height="75dip"
+                android:src="@drawable/scene_0_150x150" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/kettle_tv_scene_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="信阳毛尖茶"
+                    android:textColor="#F96507"
+                    android:textSize="17.5dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="目标   "
+                        android:textColor="#6E6E6E"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/kettle_tv_scene_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="85℃"
+                        android:textColor="#F96507"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/tv_warm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="保温   "
+                        android:textColor="#6E6E6E"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/kettle_tv_scene_keepwarmperoid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30分钟"
+                        android:textColor="#F96507"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="25dp"
+            android:gravity="center"
+            android:visibility="visible" >
+
+            <ImageButton
+                android:id="@+id/boilBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_boil" />
+
+            <ImageButton
+                android:id="@+id/keepwarmBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_warm" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_layout"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/stopBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_stop"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/main_tab_group"
+            android:layout_width="fill_parent"
+            android:layout_height="68dp"
+            android:layout_gravity="center"
+            android:background="#7f323232"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/main_tab_hobby"
+                style="@style/radioStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/selector_button_record"
+                android:background="@drawable/selector_btn1_background"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxEms="4"
+                android:singleLine="true"
+                android:text=""
+                android:textSize="13.5sp" />
+
+            <RadioButton
+                android:id="@+id/main_tab_scene"
+                style="@style/radioStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:clickable="true"
+                android:layout_marginLeft="1dip"
+                android:layout_marginRight="1dip"
+                android:drawableTop="@drawable/selector_button_scene"
+                android:background="@drawable/selector_btn2_background"
+                android:gravity="center"
+                android:text="场景选择"
+                android:textSize="13.5sp" />
+
+            <RadioButton
+                android:id="@+id/main_tab_appoint"
+                style="@style/radioStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:layout_marginRight="1dip"
+                android:drawableTop="@drawable/selector_button_appoint"
+                android:background="@drawable/selector_btn2_background"
+                android:gravity="center"
+                android:text="预约管理"
+                android:textSize="13.5sp" />
+
+            <RadioButton
+                android:id="@+id/main_tab_advance"
+                style="@style/radioStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:drawableTop="@drawable/selector_button_advance"
+                android:background="@drawable/selector_btn1_background"
+                android:gravity="center"
+                android:text="高级设置"
+                android:textSize="13.5sp" />
+        </RadioGroup>
+    </LinearLayout>
+
+</RelativeLayout>

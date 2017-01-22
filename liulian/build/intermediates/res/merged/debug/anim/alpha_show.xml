@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" >
+
+    <!-- fromAlpha和toAlpha是起始透明度和结束时透明度 -->
+    <alpha
+        android:duration="200"
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0" />
+
+</set>        <!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/anim/alpha_show.xml -->

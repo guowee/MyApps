@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="#ECECEC"
+    android:layout_height="fill_parent" >
+
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/root_layout" />
+    
+    <RelativeLayout
+        android:layout_below="@id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager_nav"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/linear_guide_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp" >
+
+            <Button
+                android:id="@+id/skip_to_scan"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/title_bg"
+                android:textColor="@android:color/white"
+                android:text="@string/skip_scan_qr_code" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

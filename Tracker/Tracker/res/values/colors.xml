@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="register_remind_txt">#6e6e6e</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_txt">#000000</color>
+    <color name="title_appoint_gray">#6e6e6e</color>
+    <color name="dialog_confirm">#3DD0C0</color>
+    <color name="bg_color">#f5f7f7</color>
+    <color name="white">#ffffffff</color>
+    <color name="gray">#8B8B7A</color>
+    <color name="block_gray">#C4C4C4</color>
+    <color name="add_device_list_item_divider">#7d7d7c</color>
+    <color name="dark_green">#00CCCB</color>
+    <color name="light_gray">#c2c7cc</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+
+</resources>

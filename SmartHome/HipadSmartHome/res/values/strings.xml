@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="about_company">广东新宝电器股份有限公司是广东东菱凯琴集团有限公司的控股企业，始创于1995年。公司以“东菱”为核心自有品牌，专业生产、研发、销售电热水壶、咖啡壶、面包机、烤箱、多士炉、电烫斗及各种食物处理器等小家电及相关产业配套。励精图治、开拓奋进，十多年来，新宝公司以成本、技术、规模领先的竞争策略，始终专注于全球小家电市场，公司产品95％以上出口到欧洲、美洲、澳洲等发达国家，现已进入全球100多个国家和地区，成为饮誉全球的厨卫小家电市场的重要制造基地。如今，东菱致力于环境、个人健康的研究与开发，不断推出创新的解决方案。结合物联网技术和智能手机APP应用，只为让您更及时了解并改善自己的居家环境和身体状况。</string>
+    <string name="url_company"><a href="http://www.donlim.com">公司网站：www.donlim.com</a></string>
+    <string name="dev_list_title">家电清单</string>
+    <string name="dev_add_title">新增家电</string>
+    <string name="capture_no_dev">请添加装置!</string>
+    <string name="open_wifi_ap_mode">请开启配对模式!</string>
+    <string name="capture_no_sdcard">Internal space is occupied</string>
+    <string name="capture_add_dev">添加</string>
+    <string name="wifi_ap_mode_opeded">已开启配对模式</string>
+    <string name="delete_device_text">是否删除 %1$s </string>
+    <string name="no_water_text">水壶已经缺水，请加水！</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="device_rename">修改设备名称</string>
+
+    <!-- common -->
+    <string name="app_name">智能家居</string>
+    <string name="dialog_text">正在加载中&#8230;</string>
+    <string name="titlebar_text">欢迎回家</string>
+    <string name="timeout_hint">请求超时,请重试!</string>
+    <string name="timeout">超时</string>
+    <string name="timeout_try_aggin">超时， 请重试！</string>
+    <string name="error">错误!</string>
+    <string name="success">成功</string>
+    <string name="neterror_hint">网络出错,请检查网络!</string>
+    <string name="clouderror_hint">获取云端数据失败!</string>
+    <string name="device_error_hint">设备错误！</string>
+
+    <!-- LoginActivity -->
+    <string name="forgot_text">忘记密码</string>
+    <string name="Signup_text">注册</string>
+    <string name="login_name_hint">用户名</string>
+    <string name="login_pass_hint">密码</string>
+    <string name="login_name_null">用户名不可为空!</string>
+    <string name="login_name_email_error">邮箱格式错误!</string>
+    <string name="login_pass_null">密码不可为空!</string>
+    <string name="login_pass_error">用户名或密码出错!</string>
+    <string name="login_btntxt">登        录</string>
+
+    <!-- SignupActivity -->
+    <string name="sign_name_hint">请输入用户名</string>
+    <string name="sign_name_length">用户名长度请在4位或16位之间</string>
+    <string name="sign_email_hint">电子邮箱用于找回密码</string>
+    <string name="sign_pass_hint">密码至少八字符</string>
+    <string name="sign_name_illegal">用户名不可为空或含特殊字符!</string>
+    <string name="sign_pass_null">密码不可为空!</string>
+    <string name="sign_pass_lenght">密码长度请在8位或16位之间!</string>
+    <string name="sign_email_illegal">邮箱不可为空或格式不正确!</string>
+    <string name="sign_btn_text">注              册</string>
+
+    <!-- UserInfoActivity -->
+    <string name="string_title">个人信息</string>
+    <string name="string_head">头像</string>
+    <string name="string_nickname">昵称</string>
+    <string name="string_name">姓名</string>
+    <string name="string_birth">生日</string>
+    <string name="string_sexy">性别</string>
+    <string name="string_contact">联系方式</string>
+    <string name="string_phone">手机</string>
+    <string name="string_mail">邮箱</string>
+    <string name="string_address">地址</string>
+    <string name="string_other">其他</string>
+    <string name="string_carrer">职业</string>
+    <string name="string_company">公司</string>
+    <string name="string_confirm">确定</string>
+    <string name="string_sex_male">男</string>
+    <string name="string_sex_female">女</string>
+    <string name="string_nickname_null">请填写用户昵称</string>
+    <string name="string_name_null">请填写用户名称</string>
+    <string name="string_birth_null">请填写生日信息</string>
+    <string name="string_phone_null">请填写手机号码</string>
+    <string name="string_address_null">请填写地址信息</string>
+    <string name="string_carrer_null">请填写职业名称</string>
+    <string name="string_company_null">请填写公司名称</string>
+    <string name="string_name_illege">用户名不合法</string>
+    <string name="string_phone_illege">手机号码填写有误</string>
+    <string name="string_sex_null">请选择性别</string>
+
+    <!-- AppointMentActivity -->
+    <string name="appiontment_title">预约管理</string>
+    <string name="appointment_name">名称</string>
+    <string name="appointment_tmp">温度</string>
+    <string name="appointment_warm">保温时间</string>
+    <string name="appointment_time">预约时间</string>
+    <string name="appointment_cancel">取消</string>
+    <string name="appointment_confirm">确定</string>
+    <string name="appointment_temp_title">选择温度(℃)</string>
+    <string name="appointment_time_title">设置预约时间</string>
+    <string name="appointment_time_error">当前时间已经过去，请预约之后的时间</string>
+    <string name="appointment_time_repeat">当前时间已经预约，请预约其他的时间</string>
+    <string name="appointment_param_set">请设置预约参数</string>
+    <string name="appointment_name_error">名称设置有误，长度小于20大于０</string>
+    <string name="appointment_temp_null">请设置温度</string>
+    <string name="appointment_warm_time_null">请设置保温时间</string>
+    <string name="appointment_appoint_time_null">请设置预约时间</string>
+    <string name="appointment_delete_title">预约删除</string>
+    <string name="appointment_delete_msg">是否删除这个预约?</string>
+    <string name="appointment_delete_confirm">确定</string>
+    <string name="appointment_delete_cancel">取消</string>
+    <string name="appointment_date">预约日期</string>
+    <string name="appointment_date_title">选择预约日期</string>
+    <string name="appointment_appoint_date_null">请设置预约日期</string>
+    <string name="appointment_name_null">请设置预约名称</string>
+    <string name="appointment_set_title">预约管理</string>
+    <string name="appointment_name_set">请输入预约名称</string>
+    <string name="appointment_mode_everyday">每天</string>
+    <string name="appointment_mode_single">单次</string>
+    <string name="appointment_name_default">预约</string>
+    <string name="appointment_content_default">煮水</string>
+    <string name="appointment_mode_defalut">每天</string>
+    <string name="appointment_content_boil">煮水</string>
+    <string name="appointment_content_boil_warm">煮水,保温</string>
+    <string name="appointment_content_scene">场景煮水</string>
+    <string name="appointment_content_boil_title">煮水模式</string>
+    <string name="appointment_content_boil_msg">确定选择煮水模式？</string>
+    <string name="appointment_content_boil_start">保温时间</string>
+    <string name="appointment_content_boil_end">分钟</string>
+    <string name="appointment_time_morn">上午</string>
+    <string name="appointment_time_aft">下午</string>
+    <string name="appointment_time_noon">中午</string>
+    <string name="appointment_status_start_everyday">每天开启</string>
+    <string name="appointment_status_start_single">单次开启</string>
+    <string name="appointment_status_shut">未开启</string>
+
+    <!-- MainActivity -->
+    <string name="main_addpop_routerTxt">路由</string>
+    <string name="main_addpop_deviceTxt">家电</string>
+    <string name="main_side_label_logout">登出</string>
+    <string name="main_side_label_upddate">更新</string>
+    <string name="main_side_label_shop">商城</string>
+    <string name="main_side_label_about">关于</string>
+    <string name="main_side_label_maintain">维修</string>
+
+    <!-- CookTypeActivity -->
+    <string name="cook_titleTxt">饮食起居</string>
+    
+    <!-- AddAppliance -->
+    <string name="add_title">添加家电</string>
+    <string name="add_input_hint">请输入&#8230;</string>
+    <string name="add_add_hint">添加路由&#8230;</string>
+    <string name="add_device_scaning">扫描&#8230;</string>
+    <string name="add_device_please_choose">请选择&#8230;</string>
+    <string name="add_device_title_scan_devices">搜索家电</string>
+    <string name="add_device_title_add_devices">添加家电</string>
+    <string name="add_device_connecting_i">连接中&#8230;</string>
+    <string name="add_device_connecting_ii">连接中&#8230;&#8230;</string>
+    <string name="add_device_get_config">获取配置信息&#8230;</string>
+    <string name="add_device_configuring_i">配置中&#8230;</string>
+    <string name="add_device_configuring_ii">配置中&#8230;&#8230;</string>
+    <string name="config_device_lable_name">家电名称</string>
+    <string name="config_device_renaming_i">更名中&#8230;</string>
+    <string name="config_device_lable_wifi">请输入WiFi名称及密码</string>
+    <string name="config_device_hint_device">设备</string>
+    <string name="config_device_hint_ssid">SSID</string>
+    <string name="config_device_hint_passwd">密码</string>
+    <string name="config_device_hint_active_code">激活码</string>
+    <string name="add_power_hint">请确保您的家电设备已接电源</string>
+    <string name="device_list_loading">载入清单&#8230;</string>
+
+    <!-- KettleActivity -->
+    <string name="kettle_greentea">绿茶</string>
+    <string name="kettle_redtea">红茶</string>
+    <string name="kettle_ootea">乌龙茶</string>
+    <string name="kettle_level_60">60</string>
+    <string name="kettle_level_70">70</string>
+    <string name="kettle_level_80">80</string>
+    <string name="kettle_level_90">90</string>
+    <string name="kettle_level_100">100</string>
+    <string name="kettle_keepwarm">保温</string>
+    <string name="kettle_keepwarm_countdown">保温倒计时 </string>
+    <string name="kettle_tabLeft_txt">正常模式</string>
+    <string name="kettle_tabRight_txt">冲泡模式</string>
+    <string name="kettle_onekey_txt">一键冲泡</string>
+    <string name="kettle_virtualkey_txt">虚拟按键</string>
+    <string name="kettle_chooseTemp">保温温度</string>
+    <string name="kettle_chooseTime">保温时间</string>
+    <string name="kettle_startBoil">开始煮水</string>
+    <string name="kettle_stopBoil">停止煮水</string>
+    <string name="kettle_stopWarm">停止保温</string>
+    <string name="kettle_stop">停止</string>
+    <string name="kettle_virtual_keep60">60°保温</string>
+    <string name="kettle_virtual_keep70">70°保温</string>
+    <string name="kettle_virtual_keep80">80°保温</string>
+    <string name="kettle_virtual_keep90">90°保温</string>
+    <string name="kettle_virtual_boilbtn">待机按键</string>
+    <string name="kettle_virtual_resetwarm">重置保温</string>
+    <string name="kettle_appoint_txt">预约</string>
+    <string name="kettle_hint_hungup">水壶已被提起，不可操作。</string>
+    <string name="kettle_hint_bad_water">水质低劣，为了您的身体健康，请换一壶水.</string>
+    <string name="kettle_hint_ntc">水壶出现严重错误，请断电后重新上电。</string>
+
+    <!-- AddChooserActivity -->
+    <string name="activity_addchooser_lable_add">将设备添加到WiFi</string>
+    <string name="activity_addchooser_lable_search">搜索WiFi上的设备</string>
+    <string name="activity_addchooser_lable_prompt">已开启配对模式</string>
+    <string name="title_add_device">添加家电</string>
+
+    <!-- ScanDevOnWifiActivity -->
+    <string name="bundle_device_text">是否绑定设备?</string>
+    <string name="label_input_active_code">请输入激活码</string>
+
+    <!-- ConfigDeviceActivity -->
+    <string name="activity_configdevice_lable_continue">继续</string>
+    <string name="activity_configdevice_hint_config_fail">配置失败, 请重试!</string>
+    <string name="activity_configdevice_hint_succuss">添加成功！</string>
+    <string name="activity_bundledevice_hint_succuss">绑定成功！</string>
+    <string name="activity_configdevice_hint_sync_cloud">同步数据到云端&#8230;</string>
+    <string name="activity_configdevice_hint_sync_cloud_fail">同步失败，稍后尝试同步数据到云端！</string>
+    <string name="activity_configdevice_hint_bind_failed">绑定失败，稍后尝试同步数据到云端！</string>
+    <string name="activity_configdevice_hint_active_code_illegal">激活码格式错误！</string>
+
+    <!-- 水质提醒 -->
+    <string name="waterlevel_excellent">亲爱的主人，近期用水质量优秀，太棒了！</string>
+    <string name="waterlevel_good">亲爱的主人，近期用水质量良好，继续坚持哦！</string>
+    <string name="waterlevel_preferably">亲爱的主人，近期用水质量较差，建议您注意用水健康！</string>
+    <string name="waterlevel_bad">亲爱的主人，近期用水质量低劣，建议您尽快换水！</string>
+    <!-- 饮水闹钟 -->
+    <string name="drink_alarm">亲爱的主人，您该饮水了！</string>
+    <!-- 场景 -->
+    <string name="scene_0">用户自定义</string>
+    <string name="scene_100">早餐豆乳</string>
+    <string name="scene_200">奶粉</string>
+    <string name="scene_300">咖啡</string>
+    <string name="scene_400">蜜水</string>
+    <string name="scene_500">绿茶</string>
+    <string name="scene_600">红茶</string>
+    <string name="scene_700">黄茶</string>
+    <string name="scene_800">乌龙茶</string>
+    <string name="scene_900">普洱</string>
+    <string name="scene_1000">白茶</string>
+    <string name="scene_1100">黑茶</string>
+    <string name="scene_1200">花茶</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_101">抹茶味豆乳</string>
+    <string name="scene_102">芝士味豆乳</string>
+    <string name="scene_103">巧克力味豆乳</string>
+    <string name="scene_104">香草味豆乳</string>
+    <string name="scene_105">卡布奇诺咖啡豆乳</string>
+    <string name="scene_106">原味豆乳</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_201">雅培</string>
+    <string name="scene_202">美赞臣</string>
+    <string name="scene_203">惠氏</string>
+    <string name="scene_204">多美滋</string>
+    <string name="scene_205">美素佳儿</string>
+    <string name="scene_206">贝因美</string>
+    <string name="scene_207">雀巢</string>
+    <string name="scene_208">可瑞康</string>
+    <string name="scene_209">牛栏</string>
+    <string name="scene_210">明治</string>
+    <string name="scene_211">雅士利</string>
+    <string name="scene_212">飞鹤</string>
+    <string name="scene_213">圣元</string>
+    <string name="scene_214">亨氏</string>
+    <string name="scene_215">合生元</string>
+    <string name="scene_216">施恩</string>
+    <string name="scene_217">启赋</string>
+    <string name="scene_218">澳优</string>
+    <string name="scene_219">爱他美</string>
+    <string name="scene_220">明一</string>
+    <string name="scene_221">喜宝</string>
+    <string name="scene_222">爱迪生</string>
+    <string name="scene_223">百立乐</string>
+    <string name="scene_224">和光堂</string>
+    <string name="scene_225">固力果</string>
+    <string name="scene_226">迈高</string>
+    <string name="scene_227">森永</string>
+    <string name="scene_228">喜安智</string>
+    <string name="scene_229">纽瑞滋</string>
+    <string name="scene_230">雅贝氏</string>
+    <string name="scene_231">倍爱</string>
+    <string name="scene_232">努卡</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_301">雀巢咖啡</string>
+    <string name="scene_302">麦斯威尔</string>
+    <string name="scene_303">悠诗诗</string>
+    <string name="scene_304">中原</string>
+    <string name="scene_305">铭咖啡</string>
+    <string name="scene_306">旧街场</string>
+    <string name="scene_307">AGF</string>
+    <string name="scene_308">益昌老街</string>
+    <string name="scene_309">怡保</string>
+    <string name="scene_310">捷荣</string>
+    <string name="scene_311">格兰特</string>
+    <string name="scene_312">克莱士</string>
+    <string name="scene_313">猫头鹰</string>
+    <string name="scene_314">麦馨</string>
+    <string name="scene_315">春光</string>
+    <string name="scene_316">蓝岸</string>
+    <string name="scene_317">伯朗</string>
+    <string name="scene_318">柯林</string>
+    <string name="scene_319">卡司诺</string>
+    <string name="scene_320">可比可</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_501">西湖龙井</string>
+    <string name="scene_502">信阳毛尖</string>
+    <string name="scene_503">黄山毛峰</string>
+    <string name="scene_504">竹叶青</string>
+    <string name="scene_505">太平猴魁</string>
+    <string name="scene_506">崂山绿茶</string>
+    <string name="scene_507">安吉白茶</string>
+    <string name="scene_508">六安瓜片</string>
+    <string name="scene_509">碧螺春</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_601">正山小种</string>
+    <string name="scene_602">金骏眉</string>
+    <string name="scene_603">祁门工夫</string>
+    <string name="scene_604">九曲红梅</string>
+    <string name="scene_605">滇红工夫</string>
+    <string name="scene_606">坦洋工夫</string>
+    <string name="scene_607">阿萨姆红茶</string>
+    <string name="scene_608">大吉岭红茶</string>
+    <string name="scene_609">锡兰红茶</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_701">君山银针</string>
+    <string name="scene_702">蒙顶黄芽</string>
+    <string name="scene_703">北港毛尖</string>
+    <string name="scene_704">霍山黄芽</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_801">铁观音</string>
+    <string name="scene_802">大红袍</string>
+    <string name="scene_803">水金龟</string>
+    <string name="scene_804">白鸡冠</string>
+    <string name="scene_805">铁罗汉</string>
+    <string name="scene_806">水仙</string>
+    <string name="scene_807">肉桂</string>
+    <string name="scene_808">凤凰单枞</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_901">七子饼茶</string>
+    <string name="scene_902">砖茶</string>
+    <string name="scene_903">沱茶</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_1001">寿眉</string>
+    <string name="scene_1002">白毫银针</string>
+    <string name="scene_1003">白牡丹</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_1101">广西六堡</string>
+    <string name="scene_1102">安化黑茶</string>
+    <string name="scene_1103">四川康砖</string>
+    <!-- //////////////////////////////////////////////////////////// -->
+    <string name="scene_1201">茉莉花茶</string>
+    <string name="scene_1202">玫瑰花茶</string>
+    <string name="scene_1203">昆仑雪菊</string>
+    <string name="scene_1204">桐乡胎菊</string>
+    <string name="img_suffix_125x125">125x125</string>
+    <string name="img_suffix_130x130">130x130</string>
+    <string name="img_suffix_150x150">150x150</string>
+    <string name="search_hint">输入汉字、全拼或字母缩写</string>
+    
+    <!-- 用水习惯 -->
+    <string name="usage_chart">用水时间段折线图</string>
+    <string name="temp_chart">常用水温柱状图</string>
+    <string name="usage_analysis_btn_text">用水时段分析</string>
+    <string name="usage_analysis_notify_text">最常饮水的时间段是</string>
+    <string name="temperature_analysis_btn_text">常用水温分析</string>
+    <string name="temperature_analysis_notify_text">最常饮水的温度是</string>
+    <string name="analysis_no_data_text">尚无使用资料</string>
+
+</resources>

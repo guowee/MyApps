@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ProjectDemo" default="help">
+
+   <!-- <property name="market_channels" value="版本更新4.2.0,官网,贴吧,漫展,官网,论坛,南方市场,泰豪集团" /> -->
+
+  <!-- <property name="market_channels" value="百度,3_6_o手机助手,小米商城,豌豆荚,应用汇,木蚂蚁市场,安智市场,N多市场,腾讯应用宝,魅族软件中心,联想乐商店,安卓,91,GooglePlay,OPPO" /> -->  
+
+ 	   <property name="market_channels" value="官网210" /> 
+   
+	<property name="version_code" value="210" />
+	<property name="version_name" value="2.1.0" />
+	
+	
+    
+    <!-- <property file="build.properties"/> -->
+
+
+    <!-- 支持循环执行 -->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" >
+        <classpath>
+			<pathelement location="./ant-contrib-1.0b3.jar" />
+        </classpath>
+    </taskdef>
+
+	<echo>Run ant-contrib OK</echo>
+	
+	<!-- apk输出路径 -->	   
+	<property name="apk_out_dir" value="D:\APKOut\liulian\${version_name}" />
+	<mkdir dir="${apk_out_dir}"/>
+
+	 <target name="deploy">  
+	   <foreach target="edit_and_build" list="${market_channels}" param="channel" delimiter=",">  
+	   </foreach>
+	   <!-- <foreach target="edit_and_build" list="${channel_ids}" param="channel_id" delimiter=",">  
+	   </foreach>  -->
+	 </target>  
+
+	 <target name="edit_and_build">  
+		<echo>开始打包： '${channel}' apk</echo>
+		
+		
+		<replaceregexp flags="g" byline="false" encoding="UTF-8">  
+		    <regexp pattern="android:versionCode=&quot;(.*)&quot;"/>  
+		    <substitution expression="android:versionCode=&quot;${version_code}&quot;"/>
+
+		    <fileset dir="" includes="AndroidManifest.xml" />
+	    </replaceregexp> 
+	    
+		
+		<replaceregexp flags="g" byline="false" encoding="UTF-8">  
+		    <regexp pattern="android:versionName=&quot;(.*)&quot;"/>  
+		    <substitution expression="android:versionName=&quot;${version_name}&quot;"/>
+
+		    <fileset dir="" includes="AndroidManifest.xml" />
+	    </replaceregexp> 
+	    
+		
+		<!--  flags="g" 指定全局替换，替换所有符合规则的字段
+		byline="false" 确认被替换的时候是一次替换一行还是多行 
+		pattern 属性用来指明正则表达式 -->
+		<replaceregexp flags="g" byline="false" encoding="UTF-8">
+		    
+		    
+		   	<regexp pattern="BaiduMobAd_CHANNEL&quot;\s*android:value=&quot;(.*)&quot;" />  
+		    <!-- substitution expression 中是替换的值，替换的值都定义在相对应的配置文件中 -->
+		    <substitution expression="BaiduMobAd_CHANNEL&quot; android:value=&quot;${channel}&quot;"/>
+		    
+		    <!-- fileset 属性中的 dir 用来指定被替换文件所在的目录
+			includes 用来指定要替换哪个文件。 -->  
+		    <fileset dir="" includes="AndroidManifest.xml" />
+	    </replaceregexp>
+	    
+
+		<property name="out.final.file" location="${apk_out_dir}\Liulian_${version_name}_${channel}.apk" />
+			
+        <antcall target="clean" />
+        <antcall target="release" />
+	</target>  
+	
+	 
+	 
+    
+    <!-- <property file="local.properties" /> -->
+   
+    <property file="ant.properties" />
+
+ 
+    <loadproperties srcFile="project.properties" />
+
+    <fail
+            message="sdk.dir is missing. Make sure to generate local.properties using 'android update project' or to inject it through an env var"
+            unless="sdk.dir"
+    />
+
+
+    <import file="${sdk.dir}/tools/ant/build.xml" />
+
+    
+ 
+    
+</project>

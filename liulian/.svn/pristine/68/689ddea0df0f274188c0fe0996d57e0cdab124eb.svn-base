@@ -1,0 +1,298 @@
+package com.haomee.fragment;
+
+import java.util.ArrayList;
+
+import com.haomee.util.imageloader.ImageLoaderCharles;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.haomee.consts.CommonConst;
+import com.haomee.consts.PathConst;
+import com.haomee.entity.TextItem;
+import com.haomee.entity.UserTextList;
+import com.haomee.liulian.BaseFragment;
+import com.haomee.liulian.LiuLianApplication;
+import com.haomee.liulian.MainActivity;
+import com.haomee.liulian.R;
+import com.haomee.liulian.TestActivity;
+import com.haomee.liulian.TestResultActivity;
+import com.haomee.util.NetworkUtil;
+import com.haomee.util.ViewUtil;
+import com.haomee.view.CircleImageView;
+import com.haomee.view.LoadingDialog;
+import com.haomee.view.MyToast;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+public class TestFragment extends BaseFragment {
+	private View text_view;
+	private Activity activity_context;
+	private ImageView iv_background;
+	private CircleImageView icon_image;
+	private TextView user_name, user_leveral, next_leveral, user_finish, user_today_work, text_or_seek, next_level_day;
+	private ProgressBar progress_leveral, progress_leveral_back;
+	private LinearLayout ll_text;
+
+	private MyTextReceiver text_receiver;
+	private ArrayList<TextItem> text_list;
+	private UserTextList user_text_info;
+	private String total = "";
+	private LinearLayout ll_no_content;
+	private RelativeLayout rl_content;
+	private TextView tv_refrash;
+	private LoadingDialog loadingDialog;
+	private int progress_back_width = 0;
+	private int progress_back_height = 0;
+	private LayoutParams layoutParams;
+	private String Luid;
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		if (text_view == null) {
+			activity_context = getActivity();
+			text_view = inflater.inflate(R.layout.fragment_text, null);
+			loadingDialog = new LoadingDialog(activity_context);
+			initView();
+			progress_back_width = ViewUtil.dip2px(activity_context, 200);
+			progress_back_height = ViewUtil.dip2px(activity_context, 20);
+			Luid = LiuLianApplication.current_user.getUid();
+			text_receiver = new MyTextReceiver();
+			IntentFilter filter = new IntentFilter("MyReceiver_Action");
+			activity_context.registerReceiver(text_receiver, filter);
+		} else {
+			((ViewGroup) text_view.getParent()).removeView(text_view);
+		}
+		return text_view;
+	}
+
+	private void initView() {
+		iv_background = (ImageView) text_view.findViewById(R.id.iv_background);
+		ViewGroup.LayoutParams params = iv_background.getLayoutParams();
+		params.width = ((ViewUtil.getScreenWidth(activity_context)));
+		params.height = (int) (params.width * 380 / 720);
+		iv_background.setLayoutParams(params);
+		ll_no_content = (LinearLayout) text_view.findViewById(R.id.ll_no_content);
+		rl_content = (RelativeLayout) text_view.findViewById(R.id.rl_content);
+		tv_refrash = (TextView) text_view.findViewById(R.id.tv_refrash);
+		tv_refrash.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				init_text_page();
+			}
+		});
+
+		next_level_day = (TextView) text_view.findViewById(R.id.tv_next_content);
+		icon_image = (CircleImageView) text_view.findViewById(R.id.img_icon);
+		user_name = (TextView) text_view.findViewById(R.id.user_name);
+		user_leveral = (TextView) text_view.findViewById(R.id.user_leveral);
+		user_finish = (TextView) text_view.findViewById(R.id.work_finish);
+		user_today_work = (TextView) text_view.findViewById(R.id.today_work);
+		text_or_seek = (TextView) text_view.findViewById(R.id.text_or_seek);
+		progress_leveral = (ProgressBar) text_view.findViewById(R.id.leveral);
+		progress_leveral_back = (ProgressBar) text_view.findViewById(R.id.leveral_back);
+
+		next_level_day = (TextView) text_view.findViewById(R.id.tv_next_content);
+		icon_image = (CircleImageView) text_view.findViewById(R.id.img_icon);
+		user_name = (TextView) text_view.findViewById(R.id.user_name);
+		user_leveral = (TextView) text_view.findViewById(R.id.user_leveral);
+		user_finish = (TextView) text_view.findViewById(R.id.work_finish);
+		user_today_work = (TextView) text_view.findViewById(R.id.today_work);
+		text_or_seek = (TextView) text_view.findViewById(R.id.text_or_seek);
+		progress_leveral = (ProgressBar) text_view.findViewById(R.id.leveral);
+		progress_leveral_back = (ProgressBar) text_view.findViewById(R.id.leveral_back);
+
+		layoutParams = progress_leveral.getLayoutParams();
+
+		ll_text = (LinearLayout) text_view.findViewById(R.id.linearLayout_text);
+		ll_text.setOnClickListener(clickListener);
+	}
+
+	/**
+	 * 处理点击事件
+	 */
+	OnClickListener clickListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.linearLayout_text:
+				String trim = text_or_seek.getText().toString().trim();
+				Intent intent = new Intent();
+				if ("开始测试".equals(trim)) {// 进入测试页面
+					if (user_text_info == null) {
+						return;
+					}
+					intent.setClass(activity_context, TestActivity.class);
+					intent.putExtra("user_text_info", user_text_info);
+					intent.putExtra("total", total);
+					intent.putExtra("test_flag", 0);
+					activity_context.startActivity(intent);
+				} else if ("查看结果".equals(trim)) {// 查看答题详情
+					intent.setClass(activity_context, TestResultActivity.class);
+					intent.putExtra("Luid", Luid);
+					activity_context.startActivity(intent);
+				} else if ("今日暂无任务".equals(trim)) {
+					MyToast.makeText(activity_context, "暂无任务,请您耐心等待下次任务", Toast.LENGTH_SHORT).show();
+				}
+				break;
+
+			default:
+				break;
+			}
+		}
+	};
+
+	private void init_text_page() {
+		loadingDialog.show();
+		if (!NetworkUtil.dataConnected(activity_context)) {
+			MyToast.makeText(activity_context, activity_context.getResources().getString(R.string.no_network), Toast.LENGTH_SHORT).show();
+			ll_no_content.setVisibility(View.VISIBLE);
+			rl_content.setVisibility(View.GONE);
+			loadingDialog.dismiss();
+			return;
+		}
+		String url = PathConst.URL_LEVER_TEXT;
+		RequestParams rp = new RequestParams();
+		if (Luid != null) {
+			rp.put("Luid", Luid);
+		}
+		AsyncHttpClient asyncHttp = new AsyncHttpClient();
+		asyncHttp.get(url, rp, new AsyncHttpResponseHandler() {
+			@Override
+			public void onSuccess(String arg0) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0);
+				try {
+					if (arg0 == null || arg0.length() == 0) {
+						ll_no_content.setVisibility(View.VISIBLE);
+						rl_content.setVisibility(View.GONE);
+						loadingDialog.dismiss();
+						return;
+					}
+					JSONObject json = new JSONObject(arg0);
+					if (json == null || "".equals(json)) {
+						ll_no_content.setVisibility(View.VISIBLE);
+						rl_content.setVisibility(View.GONE);
+						loadingDialog.dismiss();
+						return;// 防止网络连接超时出现空指针异常
+					}
+					ll_no_content.setVisibility(View.GONE);
+
+					rl_content.setVisibility(View.VISIBLE);
+					String cur_work = json.optString("cur");
+					String total_work = json.optString("total");
+					total = total_work;
+					user_today_work.setText(total_work);
+					user_finish.setText(json.optString("cur"));
+					ImageLoaderCharles.getInstance(getActivity()).addTask(json.optString("pic"), iv_background);
+					if (cur_work.equals(total_work)) {
+						text_or_seek.setText("查看结果");
+					}else {
+						text_or_seek.setText("开始测试");
+					}
+					// 用户信息
+					JSONObject user_obj = json.getJSONObject("user");
+					if (user_obj != null) {
+						user_name.setText(user_obj.optString("username"));
+						ImageLoaderCharles.getInstance(getActivity()).addTask(user_obj.optString("head_pic"), icon_image);
+						icon_image.setBackgroundResource(CommonConst.user_sex[Integer.parseInt(user_obj.optString("sex"))]);
+						String user_lever = user_obj.optString("user_level");
+						user_leveral.setText("LV." + user_lever);
+
+						int next_level = Integer.parseInt(user_lever) + 1;
+						next_level_day.setText("距离LV." + next_level + "还需要" + user_obj.optString("left_days") + "天");
+						int current_progress = Integer.parseInt(user_obj.optString("level_percent"));
+						layoutParams.width = (current_progress * progress_back_width / 100);
+						layoutParams.height = progress_back_height;
+						progress_leveral.setLayoutParams(layoutParams);
+						progress_leveral.setMax(current_progress);
+						progress_leveral.setProgress(current_progress);
+
+					}
+
+					user_text_info = new UserTextList();
+					text_list = new ArrayList<TextItem>();
+					JSONArray array = json.getJSONArray("list");
+					if (array == null || array.length() == 0) {
+						loadingDialog.dismiss();
+						text_or_seek.setText("今日暂无任务");
+						return;
+					}
+					for (int index = 0; index < array.length(); index++) {
+						JSONObject obj = array.getJSONObject(index);
+						if (obj.optBoolean("is_answer")) {
+							continue;
+						}
+						TextItem item = new TextItem();
+						item.setId(obj.optString("id"));
+						item.setLeft_id(obj.optString("left_id"));
+						item.setRight_id(obj.optString("right_id"));
+						item.setLeft_title(obj.optString("left_title"));
+						item.setRight_title(obj.optString("right_title"));
+						item.setLeft_num(obj.optString("left_num"));
+						item.setRight_num(obj.optString("right_num"));
+						text_list.add(item);
+					}
+					user_text_info.setList(text_list);
+					loadingDialog.dismiss();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					loadingDialog.dismiss();
+					e.printStackTrace();
+				}
+
+			}
+		});
+	}
+
+	class MyTextReceiver extends BroadcastReceiver {
+		@Override
+		public void onReceive(Context context, Intent intent) {
+//			String action = intent.getAction();
+			init_text_page();
+		}
+
+	}
+
+	@Override
+	public void setUserVisibleHint(boolean isVisibleToUser) {
+		super.setUserVisibleHint(isVisibleToUser);
+		if (isVisibleToUser) {
+			// 相当于Fragment的onResume
+			MainActivity.setTopBar(1);
+			init_text_page();
+		} else {
+			// 相当于Fragment的onPause
+		}
+	}
+
+	/**
+	 * 注销广播
+	 */
+	public void destory_recever() {
+		activity_context.unregisterReceiver(text_receiver);
+		text_receiver = null;
+	}
+}

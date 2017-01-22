@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/dev_item_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="134.5dp"
+        android:background="@drawable/bg_item_720_269"
+        android:baselineAligned="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/dev_icon_area"
+            android:layout_width="@dimen/item_image_width"
+            android:layout_height="@dimen/item_image_height"
+            android:layout_marginLeft="@dimen/item_image_marginLeft" >
+
+            <ImageView
+                android:id="@+id/dev_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/dev_info_area"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/item_image_height"
+            android:layout_marginLeft="22dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/dev_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/text_default"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/info_temperature_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="25.0dip"
+                    android:minWidth="25.0dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/dev_opt_sta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:duplicateParentState="true"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:minWidth="83dp"
+                        android:textColor="@color/text_default"
+                        android:textSize="22sp" />
+
+                    <TextView
+                        android:id="@+id/dev_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textColor="@color/text_default"
+                        android:textSize="24sp" />
+
+                    <ImageView
+                        android:id="@+id/dev_temp_unit"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:contentDescription="@string/app_name"
+                        android:ellipsize="end" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/dev_net_sta_img"
+                    android:layout_width="30dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="@string/app_name"
+                    android:maxHeight="20dp"
+                    android:maxWidth="20dp"
+                    android:scaleType="fitEnd" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/more_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="3.0dip"
+                android:layout_marginRight="12.0dip"
+                android:layout_weight="1"
+                android:minHeight="25.0dip"
+                android:minWidth="25.0dip"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:id="@+id/dev_edit"
+                    android:layout_width="32dp"
+                    android:layout_height="28dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@+id/dev_delete"
+                    android:contentDescription="@null"
+                    android:src="@drawable/btn_device_edit" />
+
+                <ImageView
+                    android:id="@+id/dev_delete"
+                    android:layout_width="32dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="24dp"
+                    android:contentDescription="@null"
+                    android:src="@drawable/btn_device_delete" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="3dp" />
+
+</LinearLayout>

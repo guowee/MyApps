@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <!-- title -->
+
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/root_layout" />
+
+    <ImageView
+        android:id="@+id/gender_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/sex_boy" />
+
+    <ImageView
+        android:id="@+id/baby"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/boy" />
+
+    <com.hipad.tracker.widget.TuneWheel
+        android:id="@+id/tuneWheel"
+        android:layout_width="50dp"
+        android:layout_height="450dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/titleBar"
+        android:layout_marginTop="10dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        
+        android:layout_below="@+id/baby" >
+        <com.hipad.tracker.widget.WheelView
+            android:id="@+id/wheelView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+        <TextView 
+            android:id="@+id/weight_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:text="@string/weight_value"
+            android:textSize="30sp"
+            />
+</RelativeLayout>
+
+</RelativeLayout>

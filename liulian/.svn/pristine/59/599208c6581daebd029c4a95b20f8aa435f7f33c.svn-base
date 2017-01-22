@@ -1,0 +1,126 @@
+package com.haomee.liulian;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.haomee.consts.PathConst;
+import com.haomee.util.NetworkUtil;
+import com.haomee.view.LoadingDialog;
+import com.haomee.view.MyToast;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class TestResultActivity extends BaseActivity {
+	private String Luid;
+	private Activity activity_context;
+	private TextView today_text,next_day_text,current_time,total_person,bt_back;
+	private LinearLayout ll_chakan,ll_huigu;
+	private LoadingDialog loadingDialog;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.acitivity_text_result);
+		Luid=getIntent().getStringExtra("Luid");
+		loadingDialog = new LoadingDialog(this);
+		activity_context=this;
+		findViewById(R.id.bt_back).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+
+		initView();
+		
+	}
+	private void initView() {
+		today_text=(TextView) findViewById(R.id.today_text);
+		next_day_text=(TextView) findViewById(R.id.next_day_text);
+		current_time=(TextView) findViewById(R.id.current_time);
+		total_person=(TextView) findViewById(R.id.total_person);
+		final Intent intent =new Intent();
+		//查看全部
+		findViewById(R.id.linearLayout_text_chakan).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(activity_context, FilterActivity.class);
+				intent.putExtra("flag", 2);
+				activity_context.startActivity(intent);
+			}
+		});
+		//分体回顾
+		findViewById(R.id.linearLayout_text_huigu).setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				intent.setClass(activity_context, TestHuiGuActivity.class);
+				activity_context.startActivity(intent);
+			}
+		});
+		
+		get_text_result();
+	}
+	/**
+	 * 
+	 */
+	private void get_text_result(){
+		loadingDialog.show();
+		if (!NetworkUtil.dataConnected(activity_context)) {
+			MyToast.makeText(activity_context, activity_context.getResources().getString(R.string.no_network), Toast.LENGTH_SHORT).show();
+			return ;
+		}
+		String url = PathConst.URL_QUESTION_RESULT;
+		RequestParams rp=new RequestParams();
+		if(Luid!=null){
+			rp.put("Luid",Luid);
+		}
+		AsyncHttpClient asyncHttp = new AsyncHttpClient();
+		asyncHttp.get(url,rp, new AsyncHttpResponseHandler() {
+			@Override
+			public void onSuccess(String arg0) {
+				// TODO Auto-generated method stub
+				super.onSuccess(arg0);
+				try {
+					if(arg0==null||arg0.length()==0){
+						loadingDialog.dismiss();
+						return ;
+					}
+					JSONObject json = new JSONObject(arg0);
+					if(json==null||"".equals(json)){
+						loadingDialog.dismiss();
+						return ;//防止网络连接超时出现空指针异常
+					}
+					total_person.setText(json.optString("num"));
+					current_time.setText(json.optString("time"));
+					JSONObject user = json.getJSONObject("user");
+					if(user!=null){
+						today_text.setText("今日测试完成  Level  "+user.optString("user_level"));
+						next_day_text.setText("距离下次升级还有"+user.optString("left_days")+"天");
+//						ImageLoaderCharles.getInstance(activity_context).addTask(user.optString("head_pic"), imag_icon);
+					}
+					loadingDialog.dismiss();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		});
+	}
+	
+}

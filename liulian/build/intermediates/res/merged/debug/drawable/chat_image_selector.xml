@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/chat_image_pressed" android:state_pressed="true"/>
+    <item android:drawable="@drawable/chat_image_pressed" android:state_selected="true"/>
+    <item android:drawable="@drawable/chat_image_normal"/>
+
+</selector><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/chat_image_selector.xml -->

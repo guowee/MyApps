@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+      android:background="#d5d5d5"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relative_top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+         >
+
+        <ImageView
+            android:id="@+id/bt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:padding="12dp"
+            android:src="@drawable/land_back" />
+        
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text=""
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/class1" />
+        
+        
+        <TextView
+            android:id="@+id/bt_radar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="12dp"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/class2"
+            android:visibility="gone"
+            android:text="探测扫描" />
+        
+    </RelativeLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.3dp"
+        android:background="#d5d5d5" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_margin="10dip"
+        >
+        
+
+       <com.handmark.pulltorefresh.library.PullToRefreshGridView
+            android:id="@+id/gridView_latest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+             android:listSelector="@color/transparent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:numColumns="2"
+            android:horizontalSpacing="10dip"
+            android:verticalSpacing="10dip"
+            android:scrollbars="none"
+            android:fadingEdge="none" /> 
+        
+        <!-- <GridView
+            android:id="@+id/gridView_latest"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:cacheColorHint="#00000000"
+            android:divider="@null"
+            android:numColumns="2"
+            android:horizontalSpacing="10dip"
+            android:verticalSpacing="10dip"
+            android:scrollbars="none"
+            android:fadingEdge="none" /> --> 
+
+        <RelativeLayout
+            android:id="@+id/layout_blank_tip"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" >
+
+            <ImageView
+                android:id="@+id/icon_blank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/icon_blank" />
+
+            <TextView
+                android:id="@+id/tip1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/icon_blank"
+                android:layout_toRightOf="@+id/icon_blank"
+                android:text="你还没有收藏过话题"
+                android:textColor="#8c8c8c"
+                android:textSize="@dimen/class3" />
+
+            <TextView
+                android:id="@+id/tip2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/tip1"
+                android:layout_below="@+id/tip1"
+                android:text="到发现页收藏你喜欢的话题吧"
+                android:textColor="#474747"
+                android:textSize="@dimen/class2" />
+        </RelativeLayout>
+    </FrameLayout>
+
+</LinearLayout>

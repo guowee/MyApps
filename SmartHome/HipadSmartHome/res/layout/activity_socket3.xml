@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/socket3_tv_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="left"
+        android:text="info" />
+
+    <LinearLayout
+        android:id="@+id/socket3_plug1_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/socket3_tv_plug1_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="info" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug1_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="On" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug1_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="Off" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/socket3_plug2_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/socket3_plug1_container"
+        android:layout_marginTop="25dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/socket3_tv_plug2_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="info" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug2_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="On" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug2_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="Off" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/socket3_plug3_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/socket3_plug2_container"
+        android:layout_marginTop="25dip"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/socket3_tv_plug3_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="info" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug3_on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="On" />
+
+        <Button
+            android:id="@+id/socket3_btn_plug3_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingLeft="50dip"
+            android:paddingRight="50dip"
+            android:text="Off" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000" >
+
+    <com.haomee.liulian.cropper.CropImageView
+        android:id="@+id/CropImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_default" />
+
+
+    <TextView
+        android:id="@+id/tv_canle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rl_image"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginLeft="15dp"
+        android:text="取消"
+        android:padding="10dip"
+        android:textColor="#fe7777"
+        android:textSize="16sp" />
+    
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tv_canle"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+         android:padding="10dip"
+        android:text="确认"
+        android:textColor="#fe7777"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/rl_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/camera_button_scale"
+         >
+        <TextView
+            android:id="@+id/tv_crop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:padding="5dip"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="1:1" />
+
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/activity_image_crop.xml -->

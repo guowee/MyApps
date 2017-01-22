@@ -1,0 +1,593 @@
+package com.haomee.liulian;
+
+import java.io.File;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Vibrator;
+import android.util.Log;
+import android.view.View;
+
+import com.baidu.frontia.FrontiaApplication;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.GeofenceClient;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.location.LocationClientOption.LocationMode;
+import com.easemob.chat.ConnectionListener;
+import com.easemob.chat.EMChat;
+import com.easemob.chat.EMChatManager;
+import com.easemob.chat.EMChatOptions;
+import com.easemob.chat.EMMessage;
+import com.easemob.chat.OnMessageNotifyListener;
+import com.easemob.chat.OnNotificationClickListener;
+import com.haomee.chat.Utils.PreferenceUtils;
+import com.haomee.chat.activity.ChatActivity;
+import com.haomee.chat.db.DbOpenHelper;
+import com.haomee.chat.db.UserDao;
+import com.haomee.chat.domain.User;
+import com.haomee.consts.CommonConst;
+import com.haomee.consts.PathConst;
+import com.haomee.entity.SDcardInfo;
+import com.haomee.entity.Users;
+import com.haomee.player.MyMusicPlayer;
+import com.haomee.util.FileDownloadUtil;
+import com.haomee.util.StorageUtil;
+
+/**
+ * application对象，统一管理应用中activity、service等。
+ */
+public class LiuLianApplication extends FrontiaApplication {
+
+	// private List<Activity> activityList = new LinkedList<Activity>();
+
+	public static Context applicationContext;
+	private static LiuLianApplication instance;
+	private Map<String, User> contactList;
+
+	private SharedPreferences preferences_setting;
+	SharedPreferences preference_person;
+	// 本app的版本号
+	public static int appVersion = 0;
+
+	// 本app的版本号
+	public static String appVersion_name = "";
+
+	public static int CHAT_COUNT_DOWN = 30;
+
+	public static boolean is_gaming = true;
+
+	// 设备ID
+	// public static String deviceID;
+
+	// 渠道名
+	public static String channelName;
+	public static String channelName_encode; // url编码
+	public static String app_language; // 语言
+
+	public static boolean book_screen_landscape;
+
+	// public static Activity mainContext;
+
+	public static Users current_user;
+
+	public static String img_path = "";
+
+	public static String download_selected_sdcard;
+
+	public static ArrayList<SDcardInfo> sdcards;
+
+	public static int height_fragment_main, height_fragment_liulian, height_fragment_discover;
+	public static boolean is_update_fav = true, is_update_praise = true; // 是否刷新列表
+
+	public static int timer_clock = 0;
+	public Timer timer;
+
+	
+	public static  Timer GAME_TIMER;
+	
+	public static Handler GAME_HANDLER;
+	public static int GAME_TIME_SEND_RECEIVE=30;
+	
+	public static LiuLianApplication getInstance() {
+		return instance;
+	}
+
+	public static String PUBLIC_GAME_ID = "";
+
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		
+		
+		
+		
+		instance = this;
+		init();
+		init_huanxin();
+		initLocation();// 初始化定位
+		initTimer();
+		try {
+			getVersionName();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		Log.w("test", "VideoApplication onCreate");
+	}
+
+	public void initTimer() {
+		//
+		if (timer == null) {
+			timer = new Timer(true);
+		}
+		timer.schedule(task, 0, 1000); // 延时1000ms后执行，1000ms执行一次
+	}
+
+	final Handler handler = new Handler() {
+		public void handleMessage(Message msg) {
+			switch (msg.what) {
+			case 1:
+				timer_clock++;
+				break;
+			}
+			super.handleMessage(msg);
+		}
+	};
+	TimerTask task = new TimerTask() {
+		public void run() {
+			Message message = new Message();
+			message.what = 1;
+			handler.sendMessage(message);
+		}
+	};
+
+	public void initSDcard() {
+
+		download_selected_sdcard = preferences_setting.getString("video_selected_sdcard", FileDownloadUtil.getSDcardRoot_default());
+		sdcards = StorageUtil.listAllSDcard(this);
+
+		if (sdcards.size() == 1) {
+			download_selected_sdcard = FileDownloadUtil.getSDcardRoot_default();
+			SharedPreferences.Editor editor = preferences_setting.edit();
+			editor.putString("video_selected_sdcard", download_selected_sdcard);
+			editor.commit();
+		}
+
+		Log.i("test", "video_selected_sdcard:" + download_selected_sdcard);
+	}
+
+	public void init_huanxin() {
+		int pid = android.os.Process.myPid();
+		String processAppName = getAppName(pid);
+		// 如果使用到百度地图或者类似启动remote service的第三方库，这个if判断不能少
+
+		if (processAppName == null || !processAppName.equalsIgnoreCase("com.haomee.liulian")) {
+			// "com.easemob.chatuidemo"为demo的包名，换到自己项目中要改成自己包名
+			return;
+		}
+		applicationContext = this;
+		instance = this;
+		EMChat.getInstance().setDebugMode(true);
+		// 初始化环信SDK,一定要先调用init()
+		EMChat.getInstance().init(applicationContext);
+		Log.d("EMChat Demo", "initialize EMChat SDK");
+		// debugmode设为true后，就能看到sdk打印的log了
+
+		// 获取到EMChatOptions对象
+		EMChatOptions options = EMChatManager.getInstance().getChatOptions();
+		// 默认添加好友时，是不需要验证的，改成需要验证
+		options.setAcceptInvitationAlways(false);
+		options.setShowNotificationInBackgroud(true);
+		// 设置收到消息是否有新消息通知，默认为true
+		options.setNotificationEnable(true);
+		// 设置收到消息是否有声音提示，默认为true
+		options.setNoticeBySound(PreferenceUtils.getInstance(applicationContext).getSettingMsgSound());
+		// 设置收到消息是否震动 默认为true
+		options.setNoticedByVibrate(PreferenceUtils.getInstance(applicationContext).getSettingMsgVibrate());
+		// 设置语音消息播放是否设置为扬声器播放 默认为true
+		options.setUseSpeaker(PreferenceUtils.getInstance(applicationContext).getSettingMsgSpeaker());
+		// 设置notification消息点击时，跳转的intent为自定义的intent
+		options.setOnNotificationClickListener(new OnNotificationClickListener() {
+
+			@Override
+			public Intent onNotificationClick(EMMessage message) {
+				Intent intent = new Intent(applicationContext, ChatActivity.class);
+				intent.putExtra("userId", message.getFrom());
+				intent.putExtra("chatType", ChatActivity.CHATTYPE_SINGLE);
+				return intent;
+			}
+		});
+		// 设置一个connectionlistener监听账户重复登陆
+		EMChatManager.getInstance().addConnectionListener(new MyConnectionListener());
+		// // 取消注释，app在后台，有新消息来时，状态栏的消息提示换成自己写的
+		options.setNotifyText(new OnMessageNotifyListener() {
+			//
+			// @Override
+			public String onNewMessageNotify(EMMessage message) {
+				// 可以根据message的类型提示不同文字(可参考微信或qq)，demo简单的覆盖了原来的提示
+				return "你的好友发来了一条消息哦";
+			}
+
+			@Override
+			public String onLatestMessageNotify(EMMessage message, int fromUsersNum, int messageNum) {
+				return fromUsersNum + "个基友，发来了" + messageNum + "条消息";
+			}
+
+			@Override
+			public String onSetNotificationTitle(EMMessage message) {
+				// 修改标题
+				return "榴莲";
+			}
+
+			@Override
+			public int onSetSmallIcon(EMMessage arg0) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+		});
+	}
+
+	/**
+	 * 设置好友user list到内存中
+	 * 
+	 * @param contactList
+	 */
+	public void setContactList(Map<String, User> contactList) {
+		this.contactList = contactList;
+	}
+
+	/**
+	 * 获取内存中好友user list
+	 * 
+	 * @return
+	 */
+	public Map<String, User> getContactList() {
+		if (current_user != null && current_user.getName() != null && contactList == null) {
+			UserDao dao = new UserDao(applicationContext);
+			// 获取本地好友user list到内存,方便以后获取好友list
+			contactList = dao.getContactList();
+		}
+		return contactList;
+	}
+
+	public void getVersionName() throws Exception {
+		PackageManager packageManager = getPackageManager();
+		// getPackageName()是你当前类的包名，0代表是获取版本信息
+		PackageInfo packInfo = packageManager.getPackageInfo(getPackageName(), 0);
+		appVersion_name = packInfo.versionName;
+	}
+
+	/**
+	 * 退出登录,清空数据
+	 */
+	public void logout() {
+
+		if (LiuLianApplication.current_user == null) {
+			return;
+		}
+
+		// 先调用sdk logout，在清理app中自己的数据
+		EMChatManager.getInstance().logout();
+		DbOpenHelper.getInstance(applicationContext).closeDB();
+
+		LiuLianApplication.current_user = null;
+		SharedPreferences preferences = this.getSharedPreferences(CommonConst.PREFERENCES_SETTING, Activity.MODE_PRIVATE);
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.remove("user_id"); // 清掉id
+		editor.commit();
+
+		// 清除个人中心背景图
+		preference_person = getSharedPreferences(CommonConst.PREFERENCES_SETTING, Activity.MODE_PRIVATE);
+		preference_person.edit().remove("person_img_bg").commit();
+
+		// setPassword(null);
+		// setContactList(null);
+
+	}
+
+	private String getAppName(int pID) {
+		String processName = null;
+		ActivityManager am = (ActivityManager) this.getSystemService(ACTIVITY_SERVICE);
+		List l = am.getRunningAppProcesses();
+		Iterator i = l.iterator();
+		PackageManager pm = this.getPackageManager();
+		while (i.hasNext()) {
+			ActivityManager.RunningAppProcessInfo info = (ActivityManager.RunningAppProcessInfo) (i.next());
+			try {
+				if (info.pid == pID) {
+					CharSequence c = pm.getApplicationLabel(pm.getApplicationInfo(info.processName, PackageManager.GET_META_DATA));
+					processName = info.processName;
+					return processName;
+				}
+			} catch (Exception e) {
+			}
+		}
+		return processName;
+	}
+
+	class MyConnectionListener implements ConnectionListener {
+		@Override
+		public void onReConnecting() {
+		}
+
+		@Override
+		public void onReConnected() {
+		}
+
+		@Override
+		public void onDisConnected(String errorString) {
+			if (errorString != null && errorString.contains("conflict")) {
+				Intent intent = new Intent(applicationContext, MainActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.putExtra("conflict", true);
+				startActivity(intent);
+			}
+		}
+
+		@Override
+		public void onConnecting(String progress) {
+
+		}
+
+		@Override
+		public void onConnected() {
+		}
+	}
+
+	private void init() {
+		try {
+			appVersion = getPackageManager().getPackageInfo("com.haomee.liulian", 0).versionCode;
+
+			ApplicationInfo appInfo = this.getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+			channelName = appInfo.metaData.getString("BaiduMobAd_CHANNEL");
+			channelName_encode = URLEncoder.encode(channelName, "UTF-8");
+
+			Locale locale = getResources().getConfiguration().locale;
+			app_language = URLEncoder.encode(locale.getLanguage(), "UTF-8");
+
+			Log.d("test", " channelName = " + channelName);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		preferences_setting = getSharedPreferences(CommonConst.PREFERENCES_SETTING, Activity.MODE_PRIVATE);
+
+		// deviceID = getDeviceID();
+
+		current_user = initSavedUser();
+
+	}
+
+	// 获取登陆过的用户信息
+	public Users initSavedUser() {
+		String uid = preferences_setting.getString("user_id", null);
+		if (uid == null) {
+
+			// 未登录时测试
+			/*
+			 * Users user = new Users(); user.setUid("187");
+			 * user.setName("测试用户"); user.setSex(1); return user;
+			 */
+			return null;
+		} else {
+			String name = preferences_setting.getString("user_name", "");
+			int sex = preferences_setting.getInt("user_sex", 0);
+			String sign = preferences_setting.getString("user_sign", "");
+			String img = preferences_setting.getString("user_img", "");
+			String accesskey = preferences_setting.getString("accesskey", "");
+			String hx_username = preferences_setting.getString("hx_username", "");
+			String hx_password = preferences_setting.getString("hx_password", "");
+			String user_phone = preferences_setting.getString("user_phone", "");
+			String head_pic_small = preferences_setting.getString("head_pic_small", "");
+			String birthday = preferences_setting.getString("birthday", "");
+			String star = preferences_setting.getString("star", "");
+			int is_new = preferences_setting.getInt("is_new", 0);
+			String signature = preferences_setting.getString("signature", "");
+			String age = preferences_setting.getString("age", "18");
+			String back_pic = preferences_setting.getString("person_img_bg", "");
+			Users user = new Users();
+			user.setUid(uid);
+			user.setName(name);
+			user.setSex(sex);
+			user.setSign(sign);
+			user.setImage(img);
+			user.setAccesskey(accesskey);
+			user.setPhone(user_phone);
+			user.setHx_username(hx_username);
+			user.setHx_password(hx_password);
+			user.setIs_new(is_new);
+			user.setHead_pic_small(head_pic_small);
+			user.setBirthday(birthday);
+			user.setStar(star);
+			user.setSignature(signature);
+			user.setAge(age);
+			user.setBack_pic(back_pic);
+			return user;
+		}
+	}
+
+	// 保存登陆用户
+	public void saveLoginedUser() {
+
+		if (current_user != null) {
+			SharedPreferences.Editor editor = preferences_setting.edit();
+			editor.putString("user_id", current_user.getUid());
+			editor.putString("user_name", current_user.getName());
+			editor.putString("user_img", current_user.getImage());
+			editor.putInt("user_sex", current_user.getSex());
+			editor.putString("user_sign", current_user.getSign());
+			editor.putString("accesskey", current_user.getAccesskey());
+			editor.putString("user_phone", current_user.getPhone());
+			editor.putInt("fans_num", current_user.getFans());
+			editor.putInt("topic_num", current_user.getTopic_num());
+			editor.putInt("content_num", current_user.getContent_num());
+			editor.putString("city", current_user.getCity());
+			editor.putString("reg_time", current_user.getReg_time());
+			editor.putString("hx_username", current_user.getHx_username());
+			editor.putString("hx_password", current_user.getHx_password());
+			editor.putInt("is_new", current_user.getIs_new());
+			editor.putString("head_pic_small", current_user.getHead_pic_small());
+			editor.putString("birthday", current_user.getBirthday());
+			editor.putString("star", current_user.getStar());
+			editor.putString("signature", current_user.getSignature());
+			editor.putString("age", current_user.getAge());
+			editor.putString("person_img_bg", current_user.getBack_pic());
+			editor.commit();
+			initSavedUser();
+		}
+
+	}
+
+	/*
+	 * private String getDeviceID() {
+	 * 
+	 * String uID = null; try { TelephonyManager tm = (TelephonyManager)
+	 * getSystemService(Context.TELEPHONY_SERVICE); uID = tm.getDeviceId();
+	 * 
+	 * if (uID == null || uID.equals("")) { WifiManager wm = (WifiManager)
+	 * getSystemService(Context.WIFI_SERVICE); String mac =
+	 * wm.getConnectionInfo().getMacAddress();
+	 * 
+	 * if (mac == null || mac.equals("")) { uID =
+	 * preferences_setting.getString("device_id", null);
+	 * 
+	 * if (uID == null) { uID = "uuid_" + UUID.randomUUID().toString();
+	 * 
+	 * SharedPreferences.Editor editor = preferences_setting.edit();
+	 * editor.putString("device_id", uID); editor.commit(); } } else { uID =
+	 * "mac_" + mac; }
+	 * 
+	 * }
+	 * 
+	 * } catch (Exception e) { e.printStackTrace(); }
+	 * 
+	 * Log.w("test", "deviceID:" + uID); return uID; }
+	 */
+
+	public void exit() {
+		try {
+			AppManager.getAppManager().AppExit(getApplicationContext());
+
+			// 退出音乐播放器
+			MyMusicPlayer.getInstance().exit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onLowMemory() {
+		super.onLowMemory();
+		Log.w("test", "VideoApplication onLowMemory");
+		System.gc();// 告诉系统回收
+		System.runFinalization();
+	}
+
+	@Override
+	public void onTerminate() {
+		super.onTerminate();
+		Log.w("test", "VideoApplication onTerminate");
+	}
+
+	public static LocationMode tempMode = LocationMode.Hight_Accuracy;
+	public static String tempcoor = "gcj02";
+	public static String city, longtitude, latitude = "";
+	// 定位开始
+	public static LocationClient mLocationClient;
+	public static GeofenceClient mGeofenceClient;
+	public static MyLocationListener mMyLocationListener;
+
+	public static Vibrator mVibrator;
+
+	// 定位结束
+	public static void initLocation() {
+
+		mLocationClient = new LocationClient(instance);
+		mMyLocationListener = new MyLocationListener();
+		mLocationClient.registerLocationListener(mMyLocationListener);
+		mGeofenceClient = new GeofenceClient(instance);
+		mVibrator = (Vibrator) instance.getApplicationContext().getSystemService(Service.VIBRATOR_SERVICE);
+		LocationClientOption option = new LocationClientOption();
+		option.setLocationMode(tempMode);// 设置定位模式
+		option.setCoorType(tempcoor);// 返回的定位结果是百度经纬度，默认值gcj02
+		// option.setScanSpan(1000);//设置发起定位请求的间隔时间为5000ms
+		option.setIsNeedAddress(true);
+		mLocationClient.setLocOption(option);
+		mLocationClient.start();// 启动定位
+	}
+
+	/**
+	 * 实现实位回调监听
+	 */
+	static class MyLocationListener implements BDLocationListener {
+
+		@Override
+		public void onReceiveLocation(BDLocation location) {
+			// Receive Location
+			longtitude = String.valueOf(location.getLongitude());
+			latitude = String.valueOf(location.getLatitude());
+			city = String.valueOf(location.getCity());
+		}
+	}
+	
+	
+//	/**
+//	 * 初始化ImageLoader
+//	 */
+//	private void initImageLoader()
+//	{
+//		// This configuration tuning is custom. You can tune every option, you
+//				// may tune some of them,
+//				// or you can create default configuration by
+//				// ImageLoaderConfiguration.createDefault(this);
+//				// method.
+//				DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+//						.showImageOnLoading(R.drawable.item_default)
+//						.showImageForEmptyUri(null).showImageOnFail(null)
+//						.cacheInMemory(true).cacheOnDisc(true).considerExifParams(true)
+//						.bitmapConfig(Bitmap.Config.RGB_565)
+//						.imageScaleType(ImageScaleType.EXACTLY).build();
+//
+//				File cacheDir = new File(PathConst.IMAGE_CACHDIR);
+//				if (!cacheDir.exists()) {
+//					cacheDir.mkdirs();
+//				}
+//
+//				ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(
+//						instance.getApplicationContext()).threadPriority(Thread.NORM_PRIORITY - 2)
+//				/* .denyCacheImageMultipleSizesInMemory() */.threadPoolSize(5)
+//						.discCache(new UnlimitedDiscCache(cacheDir))
+//						.defaultDisplayImageOptions(defaultOptions)
+//						.memoryCache(new WeakMemoryCache())
+//						.tasksProcessingOrder(QueueProcessingType.LIFO).build();
+//
+//				ImageLoader.getInstance().init(config);
+//
+//		}
+	
+}

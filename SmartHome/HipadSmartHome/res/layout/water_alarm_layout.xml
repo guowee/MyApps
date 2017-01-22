@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/setbg_588_620"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="294dp"
+        android:layout_height="310dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center_horizontal"
+            android:padding="10dip"
+            android:text=""
+            android:textColor="@color/login_forget_txt"
+            android:textSize="22sp" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            android:layout_weight="1" >
+
+            <antistatic.spinnerwheel.WheelVerticalView
+                xmlns:wheelview="http://schemas.android.com/apk/res/com.hipad.smarthome"
+                android:id="@+id/chooser_wheelview_time"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                wheelview:selectionDivider="@color/add_device_list_item_divider" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/chooser_btn_cancel"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/popview_btn_left"
+                android:text="取消"
+                android:textColor="@color/login_forget_txt" />
+
+            <View
+                android:layout_width="1dip"
+                android:layout_height="match_parent"
+                android:background="@drawable/v_white_line"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/chooser_btn_confirm"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_right_294_118"
+                android:text="确定"
+                android:textColor="@color/login_forget_txt" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/values-zh-rTW/arrays.xml -->
+    <eat-comment/>
+    <string-array name="names">
+        <item>搜索</item>
+        <item>发现</item>
+        <item>招呼</item>
+        <item>我</item>
+    </string-array>
+    <!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/values-zh-rTW/strings.xml -->
+    <eat-comment/>
+    <string name="action_settings">設置</string>
+    <string name="app_name">榴蓮</string>
+    <string name="attach_file">文件</string>
+    <string name="attach_location">位置</string>
+    <string name="attach_picture">圖片</string>
+    <string name="attach_smile">表情</string>
+    <string name="attach_take_pic">拍照</string>
+    <string name="button_pushtotalk">按住說話</string>
+    <string name="button_send">發送</string>
+    <string name="cancel">取消</string>
+    <string name="confirm_resend">確定重發該消息？</string>
+    <string name="connect_conflict">同一個賬號已在其他設備登陸</string>
+    <string name="connect_failuer_toast">請檢查網絡或稍後重試</string>
+    <string name="copy_message">複製消息</string>
+    <string name="delete">删除</string>
+    <string name="delete_message">删除消息</string>
+    <string name="delete_video">刪除視頻</string>
+    <string name="delete_voice">刪除語音</string>
+    <string name="disc">發現</string>
+    <string name="disc_inte_add">添加興趣</string>
+    <string name="disc_inte_fication">搜索</string>
+    <string name="drop_down_list_footer_default_text">伦家碗里就这些了~！（¯﹃¯）…</string>
+    <string name="drop_down_list_footer_loading_text">┗(･ω･;)┛拼命加載中……</string>
+    <string name="drop_down_list_footer_no_more_text">倫家碗裡就這些了~！（¯﹃¯）…</string>
+    <string name="drop_down_list_footer_no_network_text">主淫，是不是又沒有網絡信號了！！…</string>
+    <string name="drop_down_list_header_default_text">下拉刷新</string>
+    <string name="drop_down_list_header_loading_text">┗(･ω･;)┛拼命加載中…</string>
+    <string name="drop_down_list_header_pull_text">下拉刷新</string>
+    <string name="drop_down_list_header_release_text">釋放立即刷新</string>
+    <string name="file">[文件]</string>
+    <string name="forward">轉發</string>
+    <string name="hello_world">你好 世界!</string>
+    <string name="hi_name">榴莲</string>
+    <string name="hi_no_internet">不能連接到服務器</string>
+    <string name="hi_tip1">你還沒有收藏過話題</string>
+    <string name="hi_tip2">到發現頁收藏你喜歡的話題吧</string>
+    <string name="is_no_network">加載完了</string>
+    <string name="is_the_last_page">已經是最後一頁了</string>
+    <string name="location_message">位置信息</string>
+    <string name="move_up_to_cancel">手指上滑，取消發送</string>
+    <string name="no_network">無法連接到網絡\n請檢查您的網絡配置</string>
+    <string name="no_space">SD卡麼有足夠的空間</string>
+    <string name="ok">確定</string>
+    <string name="picture">[圖片]</string>
+    <string name="pull_to_refresh_footer_pull_label">上拉加載更多</string>
+    <string name="pull_to_refresh_footer_refreshing_label">加載中\u2026</string>
+    <string name="pull_to_refresh_footer_release_label">我還要,我還要嘛</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_refreshing_label">刷新\u2026</string>
+    <string name="pull_to_refresh_release_label">下拉刷新</string>
+    <string name="recoding_fail">錄音失敗，請重試！</string>
+    <string name="recording_video">錄製視頻</string>
+    <string name="release_to_cancel">鬆開手指，取消發送</string>
+    <string name="resend">重發</string>
+    <string name="send_fail">發送消息失敗,</string>
+    <string name="text_ack_msg">已讀</string>
+    <string name="topic_add_new">輸入你的興趣，吸引相同想法的小夥伴. . . . . .</string>
+    <string name="topic_add_tip">添加新興趣</string>
+    <string name="topic_chang_tip">或去該話題發言</string>
+    <string name="topic_change_img">換個背景</string>
+    <string name="topic_comit">提交</string>
+    <string name="topic_exist_tip">該話題已存在，建議修改為</string>
+    <string name="topic_notify">注意</string>
+    <string name="topic_notify_meg1">24小時沒人點擊, 它就會被榴蓮君吞掉哦!</string>
+    <string name="update_loading">正在加載中。。。</string>
+    <string name="video">[視頻]</string>
+    <string name="voice">[語音]</string>
+</resources>

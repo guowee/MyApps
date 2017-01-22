@@ -1,0 +1,211 @@
+package com.haomee.adapter;
+
+import java.util.List;
+import java.util.Random;
+
+import com.handmark.pulltorefresh.library.PullToRefreshListView;
+import com.haomee.util.imageloader.ImageLoaderCharles;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.haomee.consts.CommonConst;
+import com.haomee.consts.PathConst;
+import com.haomee.entity.Topic;
+import com.haomee.liulian.R;
+import com.haomee.util.NetworkUtil;
+import com.haomee.util.ViewUtil;
+import com.haomee.view.MyToast;
+import com.haomee.view.RoundCornerImageView;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+public class TopicRecAdapter extends BaseAdapter{
+
+	private Activity context;
+	private List<Topic> list_topic;
+	private LayoutInflater inflater;
+	private int item_width;
+	private Random rdm;
+	private SharedPreferences share_prefenrence_notice;
+	private String uid;
+	private PullToRefreshListView pull_ListView;
+	public TopicRecAdapter(Activity context,String uid,PullToRefreshListView pull_ListView){
+		this.context = context;
+		inflater = LayoutInflater.from(context);
+		item_width = ViewUtil.getScreenWidth(context) - ViewUtil.dip2px(context, 20);
+		rdm = new Random();
+		share_prefenrence_notice= context.getSharedPreferences("is_allow_notice", Context.MODE_PRIVATE) ;
+		this.uid=uid;
+		this.pull_ListView=pull_ListView;
+	} 
+	public void setData(List<Topic> list_topic){
+		this.list_topic = list_topic;
+		notifyDataSetChanged();
+	}
+
+
+	@Override
+	public int getCount() {
+		return list_topic == null ? 0 : list_topic.size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		// TODO Auto-generated method stub
+		return list_topic.get(position);
+	}
+
+	@Override
+	public long getItemId(int position) {
+		// TODO Auto-generated method stub
+		return position;
+	}
+
+	ViewHolder holder;
+
+	@Override
+	public View getView(final int position, View convertView, ViewGroup parent) {
+		final Topic topic = list_topic.get(position);
+		if (convertView == null) {
+			holder = new ViewHolder();
+			convertView = inflater.inflate(R.layout.item_topic, null);
+			holder.topic_title = (TextView) convertView.findViewById(R.id.topic_title);
+			holder.user_count = (TextView) convertView.findViewById(R.id.user_count);
+			holder.item_img = (RoundCornerImageView) convertView.findViewById(R.id.item_img);
+			holder.item_type = (ImageView) convertView.findViewById(R.id.item_type);
+			holder.icon_recommend = convertView.findViewById(R.id.icon_recommend);
+			holder.icon_dismiss=(ImageView) convertView.findViewById(R.id.icon_dismiss); 
+
+			holder.icon_dismiss.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Topic topic_delete=(Topic) pull_ListView.getRefreshableView().getItemAtPosition(position+1);
+					boolean is_allow_notice = share_prefenrence_notice.getBoolean("is_allow_notice", false);
+					if(is_allow_notice){//不在提醒
+						notShow(position,topic_delete.getId());
+					}else {//提醒
+						showDialog(position,topic_delete.getId());
+					}
+				}
+
+				private void showDialog(final int position,final String id) {
+					View view=inflater.inflate(R.layout.dialog_view, null);
+					final AlertDialog dialog;
+					dialog = new AlertDialog.Builder(context).show(); 
+					dialog.setContentView(view);//对比
+					final CheckBox check_sure=(CheckBox) view.findViewById(R.id.box_cancel);
+
+					view.findViewById(R.id.bt_sure).setOnClickListener(new OnClickListener() {//确定
+
+						@Override
+						public void onClick(View v) {
+							dialog.dismiss();
+							if(check_sure.isChecked()){
+								Editor editor = share_prefenrence_notice.edit();
+								editor.putBoolean("is_allow_notice", true);
+								editor.commit();
+							}
+							notShow(position,id);
+						}
+					});
+					view.findViewById(R.id.bt_close).setOnClickListener(new OnClickListener() {//取消
+
+						@Override
+						public void onClick(View v) {
+							dialog.dismiss();
+						}
+					});
+				}
+				private void  notShow(final int position,String id){
+					if (!NetworkUtil.dataConnected(context)) {
+						MyToast.makeText(context, context.getResources().getString(R.string.no_network), Toast.LENGTH_SHORT).show();
+						return ;
+					}
+					String url = PathConst.URL_NOT_SHOW;
+					RequestParams rp=new RequestParams();
+					rp.put("id", id);
+					rp.put("uid",uid);
+					AsyncHttpClient asyncHttp = new AsyncHttpClient();
+					asyncHttp.get(url,rp, new AsyncHttpResponseHandler() {
+						@Override
+						public void onSuccess(String arg0) {
+							// TODO Auto-generated method stub
+							super.onSuccess(arg0);
+							try {
+								if(arg0==null||arg0.length()==0){
+									return ;
+								}
+								JSONObject json = new JSONObject(arg0);
+								if(json==null||"".equals(json)){
+									return ;//防止网络连接超时出现空指针异常
+								}
+								if("1".equals(json.getString("flag"))){
+									//									list_topic.remove(position);
+									list_topic.remove(topic);
+									notifyDataSetChanged();
+								}
+								MyToast.makeText(context, json.optString("msg"), Toast.LENGTH_SHORT).show();
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
+						}
+					});
+				}
+			});
+			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) holder.item_img.getLayoutParams();
+			params.width = item_width;
+			params.height = item_width * 250 / 674;
+			holder.item_img.setLayoutParams(params);
+
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
+		}
+
+
+
+		holder.topic_title.setText(topic.getTitle());
+		holder.user_count.setText("+"+list_topic.get(position).getUser_num()+"人");
+		holder.icon_recommend.setVisibility(topic.isIs_recTopic()?View.VISIBLE:View.GONE);
+		holder.icon_dismiss.setVisibility(topic.isIs_recTopic()?View.GONE:View.VISIBLE);
+		holder.item_img.setBgColor(CommonConst.bg_colors[rdm.nextInt(CommonConst.bg_colors.length)]);
+		holder.item_img.setImageDrawable(null);
+		ImageLoaderCharles.getInstance(context).addTask(topic.getCategory_icon(), holder.item_type);
+		ImageLoaderCharles.getInstance(context).addTask(topic.getBack_img(), holder.item_img);
+		return convertView;
+	}
+
+
+
+	class ViewHolder {
+		private TextView topic_title;
+		private TextView user_count;
+		private RoundCornerImageView item_img;
+		private ImageView item_type;
+		private View icon_recommend;
+		private ImageView icon_dismiss;
+	}
+
+
+
+
+}

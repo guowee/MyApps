@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp" >
+
+    <ImageView
+        android:id="@+id/item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/tabbar_button_1_default" />
+
+    <TextView
+        android:id="@+id/item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:text="动画"
+        android:textColor="#999999"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:id="@+id/item_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@+id/item_icon"
+        android:src="@drawable/dot"
+        android:visibility="gone" />
+
+</RelativeLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/item_main_menu.xml -->

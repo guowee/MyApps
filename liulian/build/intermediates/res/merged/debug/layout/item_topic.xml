@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.haomee.liulian"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp" >
+
+    <com.haomee.view.RoundCornerImageView
+        android:id="@+id/item_img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/item_default"
+        app:bg_color="#ff0000"
+        app:mask_color="#55000000"
+        app:radius="5dp" />
+
+    <!--
+             <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/item_img"
+            android:layout_alignBottom="@+id/item_img"
+            android:background="#55000000" />
+    -->
+
+    <TextView
+        android:id="@+id/topic_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/user_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/item_img"
+        android:layout_margin="12dp"
+        android:text="+0人"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_type_bg" />
+
+    <ImageView
+        android:id="@+id/item_type"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_margin="2dp" />
+
+    <TextView
+        android:id="@+id/icon_recommend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/icon_recommend"
+        android:gravity="center_horizontal"
+        android:paddingTop="2dp"
+        android:text="推荐"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/icon_dismiss"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/item_img"
+        android:layout_alignBottom="@+id/item_img"
+        android:layout_marginRight="5dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="15dp"
+        android:visibility="invisible"
+        android:src="@drawable/discover_button_delete" />
+
+</RelativeLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/item_topic.xml -->

@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/navibar"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/title_left_icon"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12.5dp"
+                android:scaleType="center"
+                android:src="@drawable/ico_titlebar_back" />
+
+            <ImageView
+                android:id="@+id/appoint_icon_confirm"
+                android:layout_width="50dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                android:background="@drawable/ico_ok"
+                android:scaleType="center" />
+
+            <TextView
+                android:id="@+id/title_center_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="@string/appointment_set_title"
+                android:textColor="@color/white"
+                android:textSize="19.5dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/title_layout"
+        android:background="@drawable/bg_item_720_150" >
+
+        <TextView
+            android:id="@+id/appointment_name_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dp"
+            android:text="预约名称"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <View
+            android:id="@+id/devide_0"
+            android:layout_width="0.5dip"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/appointment_name_title"
+            android:background="@drawable/v_gray_line_1_80" />
+
+        <TextView
+            android:id="@+id/appointment_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/devide_0"
+            android:ellipsize="end"
+            android:maxLength="14"
+            android:singleLine="true"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5dp" />
+
+        <ImageView
+            android:id="@+id/appoint_name_rightbtn"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.5dp"
+            android:src="@drawable/ico_enter" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/gap_1"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/title_view"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/content_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/gap_1"
+        android:background="@drawable/bg_item_720_150" >
+
+        <TextView
+            android:id="@+id/content_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dp"
+            android:text="预约内容"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <View
+            android:id="@+id/devide_1"
+            android:layout_width="0.5dip"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/content_title"
+            android:background="@drawable/v_gray_line_1_80" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/devide_1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/appointment_content_title"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/title_appoint_gray"
+                android:textSize="19.5sp" />
+
+            <TextView
+                android:id="@+id/appointment_content"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/title_appoint_gray"
+                android:textSize="19.5sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/appoint_content_rightbtn"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.5dp"
+            android:src="@drawable/ico_enter" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/gap_2"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/content_view"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/model_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/gap_2"
+        android:background="@drawable/bg_item_720_150" >
+
+        <TextView
+            android:id="@+id/model_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dp"
+            android:text="预约模式"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <View
+            android:id="@+id/devide_2"
+            android:layout_width="0.5dip"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/model_title"
+            android:background="@drawable/v_gray_line_1_80" />
+
+        <TextView
+            android:id="@+id/appointment_model"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/devide_2"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <ImageView
+            android:id="@+id/appoint_model_rightbtn"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.5dp"
+            android:src="@drawable/ico_enter" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/gap_3"
+        android:layout_width="fill_parent"
+        android:layout_height="5dp"
+        android:layout_below="@+id/model_view"
+        android:orientation="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/time_view"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_below="@+id/gap_3"
+        android:background="@drawable/bg_item_720_150" >
+
+        <TextView
+            android:id="@+id/time_title"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="27dp"
+            android:text="预约时间"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <View
+            android:id="@+id/devide_3"
+            android:layout_width="0.5dip"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/time_title"
+            android:background="@drawable/v_gray_line_1_80" />
+
+        <TextView
+            android:id="@+id/appointment_time"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/devide_3"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/title_appoint_gray"
+            android:textSize="19.5sp" />
+
+        <ImageView
+            android:id="@+id/appoint_time_rightbtn"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12.5dp"
+            android:src="@drawable/ico_enter" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f7f7"
+    android:orientation="vertical" >
+
+    <include
+        android:id="@+id/titleBar"
+        layout="@layout/root_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_icon" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/version" />
+        <TextView
+            android:id="@+id/versionTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/no_disturb_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white" >
+
+            <TextView
+                android:id="@+id/no_disturb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="27dp"
+                android:text="@string/no_disturb"
+                android:textColor="@color/black_txt"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/devide_0"
+                android:layout_width="0.5dip"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/no_disturb" />
+
+            <TextView
+                android:id="@+id/disturb_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/curfew_rightbtn"
+                android:text="@string/disturb_period"
+                android:textColor="@color/black_txt"
+                android:textSize="16sp" />
+            
+            <com.hipad.tracker.widget.WiperSwitch 
+                android:id="@+id/curfew_rightbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                />
+            <ImageView
+                android:id="@+id/baby_name_rightbtn"
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                android:src="@drawable/ico_enter"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            />
+        <RelativeLayout
+            android:id="@+id/add_device_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/add_device"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="27dp"
+                android:text="@string/add_tracker"
+                android:textColor="@color/black_txt"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/devide_1"
+                android:layout_width="0.5dip"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/add_device" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                android:src="@drawable/ico_enter" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/reset_factory_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white" >
+
+            <TextView
+                android:id="@+id/reset_factory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="27dp"
+                android:text="@string/factory_reset"
+                android:textColor="@color/black_txt"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/devide_2"
+                android:layout_width="0.5dip"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/reset_factory" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                android:src="@drawable/ico_enter" />
+        </RelativeLayout>
+        <View 
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            />
+        <RelativeLayout
+            android:id="@+id/check_update_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white"
+             >
+
+            <TextView
+                android:id="@+id/check_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="27dp"
+                android:text="@string/check_updates"
+                android:textColor="@color/black_txt"
+                android:textSize="18sp" />
+
+            <View
+                android:id="@+id/devide_3"
+                android:layout_width="0.5dip"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/check_update" />
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.5dp"
+                android:src="@drawable/ico_enter" />
+        </RelativeLayout>
+        
+        
+        
+        
+        <ListView
+            android:id="@+id/setting_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:dividerHeight="1dp"
+            android:visibility="gone" >
+        </ListView>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp" >
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/logout_btn_selector"
+            android:text="@string/logout"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/female" android:state_checked="false"/>
+    <item android:drawable="@drawable/sex_female_selected" android:state_checked="true"/>
+
+</selector><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/sex_female_radio.xml -->

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="true" android:drawable="@drawable/mm_listitem_pressed"/>
+    <item android:drawable="@color/error_item_color"/>
+
+</selector><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/chat_error_item_bg.xml -->

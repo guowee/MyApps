@@ -1,0 +1,146 @@
+package com.haomee.chat.activity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.haomee.chat.adapter.MyEmotionsListAdapter;
+import com.haomee.consts.PathConst;
+import com.haomee.entity.EmotionItem;
+import com.haomee.liulian.BaseActivity;
+import com.haomee.liulian.R;
+import com.haomee.util.FileDownloadUtil;
+import com.haomee.util.NetworkUtil;
+import com.haomee.view.LoadingDialog;
+import com.haomee.view.MyToast;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+
+
+public class MoreEmotionsActivity extends BaseActivity {
+	private ImageView iv_back;
+	private List<String> local_package_list;
+	private Activity activity_context;
+	private String emotions_base_path;
+	private ListView lv_emotions;
+	private List<EmotionItem> emotion_item_list;
+	private MyEmotionsListAdapter my_adapter;
+	private LoadingDialog progressDialog;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_add_more_emotions);
+		activity_context = MoreEmotionsActivity.this;
+		progressDialog = new LoadingDialog(this, R.style.loading_dialog);
+		initView();
+	}
+
+	private void initView() {
+		emotions_base_path = FileDownloadUtil.getDefaultLocalDir(PathConst.DOWNLOAD_EMOTIONS);
+		search_local_emotins();// 查询本地
+		iv_back = (ImageView) findViewById(R.id.bt_emotions_back);
+		iv_back.setOnClickListener(onClickListener);
+		lv_emotions = (ListView) findViewById(R.id.my_emotions_list);
+		my_adapter = new MyEmotionsListAdapter(activity_context, emotions_base_path);
+		lv_emotions.setAdapter(my_adapter);
+		lv_emotions.setDivider(null);
+		lv_emotions.setCacheColorHint(0);
+		get_emotions_list();
+	}
+
+	private OnClickListener onClickListener = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.bt_emotions_back:
+				finish();
+				break;
+			}
+
+		}
+	};
+
+	/**
+	 * 遍历本地表情文件展示
+	 */
+	private void search_local_emotins() {
+		local_package_list = new ArrayList<String>();
+		String emotions_base_path = FileDownloadUtil.getDefaultLocalDir(PathConst.DOWNLOAD_EMOTIONS);
+		File file = new File(emotions_base_path);
+		File[] files = file.listFiles();// 获取所有表情目录文件
+		for (File f : files) {
+			local_package_list.add(f.getName());
+		}
+	}
+
+	/**
+	 * 获取表情列表
+	 */
+	private void get_emotions_list() {
+		progressDialog.show();
+		if (!NetworkUtil.dataConnected(activity_context)) {
+			MyToast.makeText(activity_context, getResources().getString(R.string.no_network), Toast.LENGTH_SHORT).show();
+			progressDialog.dismiss();
+			return;
+		}
+//		String url = PathConst.URL_EMOTIONS;
+		String url="http://manhua.haomee.cn/?m=Emoji&a=emojiList";
+		AsyncHttpClient asyncHttp = new AsyncHttpClient();
+		asyncHttp.get(url, new AsyncHttpResponseHandler() {
+			@Override
+			public void onSuccess(String arg0) {
+				super.onSuccess(arg0);
+				try {
+					if (arg0 == null || arg0.length() == 0) {
+						progressDialog.dismiss();
+						return;
+					}
+					JSONArray array = new JSONArray(arg0);
+					if (array == null || array.length() == 0) {
+						progressDialog.dismiss();
+						return;
+					}
+					for (int index = 0; index < array.length(); index++) {
+						JSONArray array_context = array.getJSONArray(index);
+						if (array_context == null || array_context.length() == 0) {
+							return;
+						}
+						emotion_item_list = new ArrayList<EmotionItem>();
+						for (int i = 0; i < array_context.length(); i++) {
+							EmotionItem emotion_item = new EmotionItem();
+							JSONObject json_obj = array_context.getJSONObject(i);
+
+							emotion_item.setId(json_obj.optString("id"));
+							emotion_item.setSize(json_obj.optString("size"));
+							emotion_item.setNum(json_obj.optInt("num"));
+							emotion_item.setCover(json_obj.optString("cover"));
+							emotion_item.setName(json_obj.optString("name"));
+							emotion_item.setIcon(json_obj.optString("icon"));
+							emotion_item.setUrl(json_obj.optString("url"));
+							emotion_item.setGif(json_obj.optBoolean("gif"));
+							emotion_item_list.add(emotion_item);
+						}
+					}
+					my_adapter.setData(local_package_list, emotion_item_list, lv_emotions);
+					progressDialog.dismiss();
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+}

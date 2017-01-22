@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="public_activity_bg">#fff5f5f5</color>
+    <color name="public_title_color">#ff525866</color>
+    <color name="transparent_dlist">#00ffffff</color>
+    <color name="white">#ffffffff</color>
+    <color name="failure_text_one">#ff8a8f99</color>
+    <color name="transparent">#00000000</color>
+    <color name="titlebar">#00999999</color>
+    <color name="login_hint_txt">#6e6e6e</color>
+    <color name="login_forget_txt">#6e6e6e</color>
+    <color name="main_addpop_txt">#7d7d7c</color>
+    <color name="title_gray">#ffffff</color>
+    <color name="title_appoint_gray">#6e6e6e</color>
+    <color name="white_gray">#dcdcdc</color>
+    <color name="white_light">#ffffff</color>
+    <color name="white_darkgray">#eeeeee</color>
+    <color name="white_side_text">#D3D2D1</color>
+    <color name="seekbar_blue">#82e0da</color>
+    <color name="error_txt_red">#ff0000</color>
+    <color name="black_txt">#000000</color>
+    <color name="pop_bg">#00999999</color>
+    <color name="add_device_list_item_divider">#7d7d7c</color>
+    <color name="edt_hint">#666666</color>
+    <color name="water_txt">#99FF33</color>
+    <color name="orange_txt">#FF6600</color>
+    <color name="common_pressed_background">#1a000000</color>
+    <color name="blue">#009966</color>
+    <color name="text_default">#FF6E6E6E</color>
+    <color name="temperature_low">#FF69BCD2</color>
+    <color name="temperature_meddle">#FFFF9614</color>
+    <color name="temperature_high">#FFE50011</color>
+    
+    <color name="waterHabitBtn">#969696</color>
+</resources>

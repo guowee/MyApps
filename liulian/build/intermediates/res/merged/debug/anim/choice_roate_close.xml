@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/accelerate_interpolator" >
+
+    <rotate
+        android:duration="500"
+        android:fromDegrees="-225"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toDegrees="0" />
+
+</set><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/anim/choice_roate_close.xml -->

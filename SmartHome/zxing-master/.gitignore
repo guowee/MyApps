@@ -1,0 +1,12 @@
+target
+private
+.idea
+*.iml
+/androidtest
+/glass
+/core
+/android-core
+/javase
+/zxing.appspot.com
+/zxingorg
+/android-integration

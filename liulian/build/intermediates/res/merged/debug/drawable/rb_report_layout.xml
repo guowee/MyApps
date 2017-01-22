@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:drawable="@drawable/report_button_default" android:state_pressed="false" android:state_window_focused="false"/>
+    <item android:drawable="@drawable/report_button_pressed"  android:state_checked="true" android:state_window_focused="true"/>
+    
+
+</selector>
+<!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/rb_report_layout.xml -->

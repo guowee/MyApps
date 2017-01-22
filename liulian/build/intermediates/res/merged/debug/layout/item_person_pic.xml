@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="1dp" >
+
+    <com.haomee.view.CornerImageView
+        android:id="@+id/item_image1"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/item_default" />
+
+    <com.haomee.view.CornerImageView
+        android:id="@+id/item_image2"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/item_default" />
+
+    <com.haomee.view.CornerImageView
+        android:id="@+id/item_image3"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip"
+        android:layout_marginTop="10dip"
+        android:layout_marginBottom="10dip"
+        android:layout_weight="1"
+        android:background="#FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/item_default" />
+
+</LinearLayout><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/layout/item_person_pic.xml -->

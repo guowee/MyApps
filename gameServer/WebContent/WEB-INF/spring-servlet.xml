@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="gb2312"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- 注解支持 -->
+	<context:annotation-config />
+
+	<!-- 注释资源扫描包路径 -->
+	<context:component-scan base-package="com.*" />
+
+	<!-- 支 持 spring mvc 新 的 注 解 类 型 详 细 spring3.0 手 册 mvc:annotation-driven -->
+	<mvc:annotation-driven />
+
+	<!-- Spring提供的属性文件工具类，可通过注解获取映射值 -->
+	<util:properties id="config" location="/WEB-INF/conf/config.properties" />
+	<!-- 试图解释器 viewResolver -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="" />
+		<!-- <property name="suffix" value=".jsp"></property> -->
+	</bean>
+
+	<!-- Spring MVC 返回json支持,在Controller中通过@ResponseBody -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	
+	<mvc:resources mapping="/src/**" location="/src/" cache-period="31536000"/>
+	<mvc:resources mapping="/res/**" location="/res/" cache-period="31536000"/>
+	<mvc:resources mapping="/css/**" location="/css/" cache-period="31536000"/>
+</beans>

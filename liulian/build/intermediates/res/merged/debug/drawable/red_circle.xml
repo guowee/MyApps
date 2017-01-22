@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval" >
+
+    <solid android:color="#FF0000" />
+
+    <size
+        android:height="15dp"
+        android:width="15dp" />
+
+</shape><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/red_circle.xml -->

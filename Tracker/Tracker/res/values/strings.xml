@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- Welcome -->
+    <string name="app_icon_tip">app_icon</string>
+    <string name="app_id">tracker</string>
+    <string name="app_name">Tracker</string>
+    <string name="product_name">Product Commercial Name</string>
+    <string name="copy_right">Copyright reserved © 2014&#8211;2015 Hipad CN All rights reserved.</string>
+    <string name="welcome">Welcome</string>
+    <string name="action_settings">Settings</string>
+    <string name="dialog_text">Loading&#8230;</string>
+    
+    <!-- Remind -->
+    <string name="remind">Remind</string>
+    <string name="remind_text">You are not bound to any device,please proceed with the device binding.</string>
+    <string name="remind_btn">Start to bind </string>
+    
+    <!-- Login -->
+    <string name="login_btn">Login</string>
+    <string name="register_btn">Register</string>
+    <string name="forget_pwd">Forget Password ?</string>
+    <string name="hint_number">Please input phone number</string>
+    <string name="hint_pwd">Please input password</string>
+    <string name="login_failure">Login failure !</string>
+    <string name="no_bind_info">no binding info</string>
+    <string name="status_error">login status error</string>
+    <string name="account_login">Account login in other device.</string>
+    
+    <!-- Logout  -->
+    <string name="logout">Log Out</string>
+    <string name="logout_tips">If you log out,you will not receive any information from the Tracker. </string>
+    
+    <!-- Register -->
+    <string name="phone_number">Please input your Phone Number</string>
+    <string name="code">Code</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="input_pwd">Please Input Password</string>
+    <string name="repeat_pwd">Please Repeat Password</string>
+    <string name="pwd_not_match">Passwords don\'t match.</string>
+    <string name="user_agreement">I agree the user agreement.</string>
+    <string name="agreement">User Agreement</string>
+    <string name="pwd_not_regex">Password only 6 ~ 20 letters, Numbers, and underscores</string>
+    <string name="press_call_button">Please press and hold the Tracker\'s call button.</string>
+    <string name="scan_qr">Can\'t find QR Code</string>
+    <string name="step1">Step 1</string>
+    <string name="scan_step_1">Please hold the button for 1 second to open the tracker&#8230;</string>
+    <string name="step2">Step 2</string>
+    <string name="skip_scan_qr_code">Skip and Scan QR Code</string>
+    <string name="scan_step_2">Please take out the QR Code from the box and scan it&#8230;</string>
+    <string name="scan_text">Please take out the QR Code from the box and scan it</string>
+    <string name="scan_qr_code">Scan QR Code</string>
+    <string name="register_failure">Register failure !</string>
+    <string name="enter_correct_number">Please enter the correct number.</string>
+    <string name="error_code">Verification code error.</string>
+    
+    <!-- Reset Password -->
+    <string name="reset_pwd_success">Reset password successful.</string>
+    <string name="reset_failure">Reset password failure !</string>
+    
+    <!-- Bind -->
+    <string name="bind_SIM">Please input tracker\'s SIM number.</string>
+    <string name="bind_IMEI">Please input tracker IMEI number.</string>
+    <string name="bind_SPN">Please input SPN number.</string>
+    <string name="sim_number">SIM Number</string>
+    <string name="bind_remind">In binding, Please wait a moment.</string>
+    <string name="bind_success">Binding success,welcome to use GPS Tracker.</string>
+    <string name="bind_failure">Failure of binding,Please reoperation.</string>
+    <string name="next">Next</string>
+    <string name="sim_null">Tracker\'s SIM can not be empty</string>
+    <string name="imei_null">Tracker\'s IMEI can not be empty</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="complete_bind">bind request complete</string>
+    <string name="success_bind">bind success</string>
+    <string name="already_bind">already bound</string>
+    <string name="welcome_use_tracker">Welcome to use GPS Tracker.</string>
+    <string name="other_account_bound">Other account bound.</string>
+    
+    <!-- Menu -->
+    <string name="step_counter">Step Counter</string>
+    <string name="security_number">Security Number</string>
+    <string name="baby_information">Baby Information</string>
+    <string name="system_settings">System Settings</string>
+
+    <!-- System Setting -->
+    <string name="version">GPS Tracker</string>
+    <string name="add_tracker">Add Tracker</string>
+    <string name="factory_reset">Factory Reset</string>
+    <string name="input_imei">Please input Tracker\'s IMEI</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset">Reset</string>
+    <string name="confirm">OK</string>
+    <string name="no_disturb">Power Saving Mode</string>
+    <string name="disturb_period"></string>
+    <string name="period">Period</string>
+    <string name="curfew_request_complete">curfew request complete</string>
+    <string name="curfew_success">curfew success</string>
+    <string name="curfewResult_request_complete">curfewResult request complete</string>
+    <string name="curfewResult_success">curfewResult success</string>
+    <string name="set_curfew_success">Set Curfew Successful</string>
+    <string name="close_curfew_success">Close Curfew Successful</string>
+    <string name="same_params">Don\'t choose the same time. </string>
+    <string name="over_time_period">Beyond the scope of the stipulated time,Please choose again.</string>
+
+     <!-- Baby Information -->
+    <string name="baby_name">Name</string> 
+    <string name="baby_gender">Gender</string>
+    <string name="Tracker_num">Tracker Number</string>
+    <string name="baby_birth">Birthday</string>
+    <string name="baby_height">Height</string>
+    <string name="baby_weight">Weight</string>
+    <string name="weight_value">0Kg</string>
+    <string name="baby_name_cancel">Cancel</string>
+    <string name="baby_name_confirm">OK</string>
+    <string name="baby_name_set">Baby\'s Name</string> 
+    <string name="baby_name_default">Baby</string> 
+    <string name="baby_birth_set">Baby\'s Birthday</string> 
+  
+    <!-- Step Counter -->
+    <string name="Steps_Counter">Step Counter</string>
+    <string name="Step">Step</string>
+    <string name="Day">Day</string>
+    <string name="Week">Week</string>
+    <string name="Month">Month</string>
+	<string name="Step_count">Step Count</string>
+	<string name="Daily_average">Daily Average:</string>
+	<string name="Today_time">Today: 13:00PM</string>
+	<string name="Walk_Run">Walk+Running Distance</string>
+	<string name="Today_Distence">0KM</string>
+   
+    <!-- Security Number -->
+    <string name="transfer_function">Transfer Function</string>
+    <string name="func_tips">When the phone number of this device is not connected,the tracker will automatically dial the following security number.</string>
+    <string name="click_tips">Double click,the tracker to dial this number.</string>    
+    <string name="sim_num">12345678900</string>
+    <string name="enter">enter</string>
+    <string name="security_number_text">Edit Security Number</string>
+    <string name="configSpn2_request_complete">spn2 request complete</string>
+    <string name="configSpn2_success">configSpn2 success</string>
+    <string name="spn2Result_request_complete">spn2Result request complete</string>
+    <string name="spn2Result_success">spn2Result success</string>
+    <string name="set_spn_success">Set Spn2 Successful</string>
+    <string name="close_spn_success">Close Spn2 Successful</string>
+    <string name="number_not_null">Number can not be empty</string>
+    
+    <!-- Loctaing -->
+    <string name="babys_name">Baby</string>
+    <string name="district_txt">Warning,No address found !</string>
+    <string name="city_txt"></string>
+    <string name="loading">Loading</string>
+    <string name="loc_request_complete">loc request complete</string>
+    <string name="loc_ack_start">loc ack start</string>
+    <string name="loc_success">loc success</string>
+    <string name="loc_ack_data">loc ack data</string>
+    <string name="locResult_request_complete">locResult request complete</string>
+    <string name="open_gps">Please open the GPS.</string>
+    
+    <!-- Factory -->
+    <string name="params_error">para error</string>
+    <string name="factory_request_complete">factory request complete</string>
+    <string name="factory_success">factory success</string>
+    <string name="facResult_success">facResult success</string>
+    <string name="facResult_request_complete">facResult request complete</string>
+    <string name="reset_success">Reset Successful !</string>
+    <string name="imei_error">Please enter the correct IMEI.</string>
+    
+    <!-- Network -->
+    <string name="neterror_hint">Network out of order !</string>
+    <string name="timeout_hint">Time out !</string>
+    
+    <!-- Update -->
+    <string name="check_updates">Check For Updates</string>
+    <string name="soft_update_title">Update Software</string>
+    <string name="soft_update_info">Detected in the new version, immediately update?</string>
+    <string name="soft_update_updatebtn">Update</string>
+    <string name="soft_update_later">Later Update</string>
+     <string name="soft_updating">Updating</string>
+    <string name="soft_update_cancel">Cancel</string>
+    <string name="soft_update_latest">The current version is the latest.</string>
+    
+</resources>

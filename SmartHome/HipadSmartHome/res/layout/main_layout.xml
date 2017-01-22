@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+    <!-- 使用自定义的侧滑布局，orientation必须为水平方向 -->
+
+    <com.hipad.smarthome.utils.SlidingLayout
+        android:id="@+id/slidingLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/menuLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/sidebarbg"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/headLayout"
+                android:layout_width="match_parent"
+                android:layout_height="150dp" 
+                android:background="@drawable/slide_btn_selector"
+                >
+
+                <ImageView
+                    android:id="@+id/headImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/ico_username_default"
+                     />
+                
+                <TextView
+                    android:id="@+id/headTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_below="@+id/headImg"
+                    android:textSize="12sp"
+                    android:textColor="@color/white_side_text"
+                    android:text="昵称"
+                    />
+            </RelativeLayout>
+            
+            <ImageView 
+              	android:layout_width="match_parent"
+              	android:layout_height="0.1dp"
+              	android:background="@android:color/background_dark"
+                />
+            
+             <Button
+                android:layout_marginTop="25dip"
+                android:id="@+id/main_layout_btn_logout"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="100dip"
+                android:layout_height="25dip"
+                android:text="@string/main_side_label_logout"
+                android:gravity="center"
+                android:textColor="@color/white_side_text"
+                android:background="@drawable/btn_logout" />
+            
+            <LinearLayout
+                android:layout_marginTop="25dip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                	android:id="@+id/main_layout_btn_update"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/main_btn_update"
+                    android:gravity="center_horizontal"
+                    android:text="@string/main_side_label_upddate"
+                    android:textColor="@color/white_side_text"
+                    android:textSize="10sp" />
+
+                <TextView
+                	android:id="@+id/main_layout_btn_shop"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/main_btn_shop"
+                    android:gravity="center_horizontal"
+                    android:text="@string/main_side_label_shop"
+                    android:textColor="@color/white_side_text"
+                    android:textSize="10sp" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_marginTop="25dip"
+                android:id="@+id/belowLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                	android:id="@+id/main_layout_btn_about"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/main_btn_about"
+                    android:gravity="center_horizontal"
+                    android:text="@string/main_side_label_about"
+                    android:textColor="@color/white_side_text"
+                    android:textSize="10sp" />
+
+                <TextView
+                	android:id="@+id/main_layout_btn_maitain"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/main_btn_maintain"
+                    android:gravity="center_horizontal"
+                    android:text="@string/main_side_label_maintain"
+                    android:textColor="@color/white_side_text"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </com.hipad.smarthome.utils.SlidingLayout>
+
+</RelativeLayout>

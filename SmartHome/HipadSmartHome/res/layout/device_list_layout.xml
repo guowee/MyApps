@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+    >
+
+    <!-- 
+    android:background="@color/public_activity_bg"
+    android:cacheColorHint="@android:color/transparent"
+     -->
+    
+    
+    <!-- //title bar -->
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:orientation="horizontal"
+            android:layout_height="60dp"
+    		android:background="@drawable/navibar"
+    		android:paddingLeft="10dp"
+    		android:paddingRight="10dp" >
+
+            <ImageView
+                android:id="@+id/title_left_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/title_center_text"
+                android:layout_alignParentLeft="true"
+                android:scaleType="center"
+                android:src="@drawable/ico_titlebar_back" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:orientation="horizontal"
+                android:gravity="center_vertical" >
+
+                <ImageView
+                    android:id="@+id/dev_more_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/btn_title_more_bg" />
+                
+               <ImageView
+                    android:id="@+id/dev_refresh_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="center"
+                    android:src="@drawable/main_btn_update" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_center_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:text="@string/dev_list_title"
+                android:textColor="@color/white"
+                android:textSize="18.0sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- //device list -->
+
+    <LinearLayout
+        android:id="@+id/show_list_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/title_layout"
+        android:fadingEdge="none"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/dev_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            
+            android:scrollbars="none"/>
+    </LinearLayout>
+
+    <!-- //no device notify layout -->
+    <RelativeLayout
+        android:id="@+id/no_device_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/split_line"
+         android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/capture_no_dev"
+                android:textColor="@color/failure_text_one"
+                android:textSize="16.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50.0dip"
+                android:src="@drawable/main_no_terminal_bg" />
+
+            <Button
+                android:id="@+id/add_terminal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50.0dip"
+                android:layout_marginRight="50.0dip"
+                android:layout_marginTop="10.0dip"
+                android:background="@drawable/btn_big_green_bg"
+                android:text="@string/capture_add_dev"
+                android:textColor="@color/white"
+                android:textSize="18.0sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/split_line"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_layout"
+        android:background="@drawable/shadow_public_title" />
+
+</RelativeLayout>

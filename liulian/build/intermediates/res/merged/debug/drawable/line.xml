@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape>
+            <gradient
+                android:angle="0"
+                android:centerColor="#CCCCCC"
+                android:endColor="#FFFFFF"
+                android:height="1px"
+                android:startColor="#000000" />
+        </shape>
+    </item>
+
+</layer-list><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/line.xml -->

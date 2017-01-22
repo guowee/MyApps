@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item android:drawable="@drawable/regbtn_on_435_88" android:state_pressed="true" /> 
+    <item android:drawable="@drawable/regbtn_off_435_88"/>  
+
+</selector>

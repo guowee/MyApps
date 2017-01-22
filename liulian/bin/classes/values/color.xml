@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 新的加载更多 -->
+    <color name="drop_down_list_header_font_color">#999999</color>
+    <!-- drop down list header second font color -->
+    <color name="drop_down_list_header_second_font_color">#999999</color>
+    <!-- drop down list footer font color -->
+    <color name="drop_down_list_footer_font_color">#999999</color>
+
+    <!-- 导航页 -->
+    <color name="nav_unselect_text">#cccccc</color>
+    <color name="nav_select_text">#fea550</color>
+    <!-- 详情页 -->
+    <!-- 1-50集 -->
+    <color name="detail_fenji">#969696</color>
+    <!-- tabs -->
+    <color name="light">#66ffffff</color>
+    <!-- 搜索页 -->
+
+    <color name="message_history">#505050</color>
+    <!-- main界面top颜色 -->
+    <color name="activity_top">#ffffff</color>
+    <color name="main_color">#fe7777</color>
+    <!-- 主色调 -->
+    <color name="main_color_gray">#dcdcdc</color>
+
+    <!-- list item的背景变化 -->
+    <color name="transparent">#00000000</color>
+    <color name="unpressed">#fff5f5f5</color>
+    <color name="white">#ffffffff</color>
+    <color name="unfocused">#ffffffff</color>
+    <color name="pressed">#f0f0f0</color>
+    <color name="selected">#fff33fff</color>
+    <color name="focused">#ffff44ff</color>
+    <!-- setting item的背景变化 -->
+
+    <color name="setting_unfocused">#ffffffff</color>
+    <color name="setting_pressed">#ff7900</color>
+    <color name="setting_selected">#fff33fff</color>
+    <color name="setting_focused">#ffff44ff</color>
+
+    <!-- 橘黄色 -->
+    <color name="main_color_yellow">#FF7900</color>
+    <color name="title_background">#333333</color>
+    <color name="title_txt_color">#ffffff</color>
+    <!-- 半透明背景蒙板 -->
+    <color name="mask_background">#7f000000</color>
+    <!-- 80%透明背景蒙板 -->
+    <color name="mask_background_episode_choice">#cc000000</color>
+    <!-- 半透明文字蒙板 -->
+    <color name="mask_txt_background">#55000000</color>
+    <color name="mask_txt_module_background">#cc000000</color>
+    <!-- 深灰色标题背景 -->
+    <color name="tab_color_unselected">#737373</color>
+    <color name="tab_color_selected">#FF7900</color>
+    <color name="tab_background">#E5E5E5</color>
+    <color name="tab_color_unselected_2">#969696</color>
+    <color name="txt_color">#999999</color>
+    <color name="txt_background">#E8E8E8</color>
+    <color name="proccess_yellow">#FF7900</color>
+    <color name="proccess_background_1">#999999</color>
+    <color name="proccess_green">#28bd2c</color>
+
+    <!-- tab切换的颜色 -->
+    <!-- 按钮上文字颜色 -->
+    <color name="bt_txt_white">#FFFFFF</color>
+    <color name="bt_txt_dark">#666666</color>
+    <color name="bt_txt_gray">#B3B3B3</color>
+
+    <!-- 分割线 -->
+    <color name="divider_line">#CCCCCC</color>
+
+    <!-- 主页底部文字yanse -->
+    <color name="main_bottom_text">#999999</color>
+    <color name="main_bottom_text_hover">#ffa550</color>
+
+    <!-- item上面的文字 -->
+    <color name="color_item_txt_dark">#666666</color>
+    <color name="color_item_txt_white">#ffffff</color>
+    <color name="color_item_txt_score">#ACACAC</color>
+    <color name="list_body_bg">#F5F5F5</color>
+    <!-- 精品推荐简介 -->
+    <color name="rec_app_intro">#999999</color>
+    <color name="discover_line">#dadada</color>
+    <color name="color_item_personal">#4F4F4F</color>
+    <color name="label_selected_bg_anim">#fdba85</color>
+    <color name="label_selected_bg_cartoon">#85c3fd</color>
+    <color name="label_selected_textcolor">#ffffff</color>
+    <color name="label_unselected_textcolor">#4F4F4F</color>
+    <color name="label_unselected_bg">#c1c1c1</color>
+
+    <!-- chat -->
+    <color name="btn_gray_normal">#c0c0c0</color>
+    <color name="btn_gray_pressed_status">#b5b5b6</color>
+    <color name="btn_gray_pressed">#666667</color>
+    <color name="btn_blue_normal">#1e90ff</color>
+    <color name="btn_blue_pressed">#0066FF</color>
+    <color name="common_bg">#fcfcfc</color>
+    <color name="orange">#FFA500</color>
+    <color name="grid_state_pressed">#1Affffff</color>
+    <color name="grid_state_focused">#80000000</color>
+    <color name="top_bar_normal_bg">#4ebcd3</color>
+    <color name="gray_pressed">#b5b5b6</color>
+    <color name="gray_normal">#666667</color>
+    <color name="divider_list">#cccccc</color>
+    <color name="error_item_color">#F6EBE6</color>
+
+    <!-- 评论列表页选项卡 -->
+    <color name="tab_unselected">#ce7944</color>
+    <color name="tab_selected">#fff8f3</color>
+    <color name="choice_image_bg">#fe7777</color>
+
+    <!-- 分享字体颜色 -->
+    <color name="share_text_color">#454545</color>
+    <color name="red">#FF0000</color>
+    <color name="image_choice_defale">#dcdcdc</color>
+
+    <!-- 播放器 -->
+    <color name="player_txt_color">#999999</color>
+    <color name="player_mask_background">#7f000000</color>
+
+    <!-- 系统消息字体颜色 -->
+    <color name="sys_info_1">#ff7900</color>
+    <color name="sys_info_2">#969696</color>
+    <color name="sys_info_3">#dcdcdc</color>
+    <color name="transparent_background">#80000000</color>
+    <color name="transparent_background_">#50000000</color>
+    <color name="my_person_tab_sel">#fe5555</color>
+    <color name="my_person_tab">#e6e6e6</color>
+
+    <!-- 兴趣话题背景图 -->
+    <color name="person_bg_1">#e29261</color>
+    <color name="person_bg_2">#d36358</color>
+    <color name="person_bg_3">#c55f91</color>
+    <color name="person_bg_4">#b35ec5</color>
+    <color name="person_bg_5">#4ab3f5</color>
+    <color name="person_bg_6">#54d5db</color>
+    <color name="person_bg_7">#3fe2ad</color>
+    <color name="person_bg_8">#9bd37c</color>
+    <color name="person_bg_9">#cbe58c</color>
+    <color name="person_bg_10">#e0ab5d</color>
+    <color name="person_bg_11">#d0d15a</color>
+    <color name="person_bg_12">#5459b5</color>
+
+    <!-- gallery -->
+    <color name="layer_middle_border">#7FFFFFFF</color>
+    <color name="layer_bottom_border">#33000000</color>
+
+    <!-- 游戏页面 -->
+    <color name="game_win">#00ada9</color>
+    <color name="game_draw">#5887ef</color>
+    <color name="game_lose">#f14f6a</color>
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <solid android:color="#ffffff" />
+
+    <stroke
+        android:width="10dp"
+        android:color="#ffffff" />
+
+
+    <padding
+        android:bottom="1dip"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp" />
+    <corners
+        android:bottomLeftRadius="180dp"
+        android:bottomRightRadius="180dp"
+        android:topLeftRadius="180dp"
+        android:topRightRadius="180dp" />
+
+</shape><!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/number_kuang.xml -->

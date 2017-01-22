@@ -1,0 +1,182 @@
+# -------------------------------------
+# android 原始混淆模板
+# -------------------------------------
+
+# ----------------------------------
+#  通过指定数量的优化能执行
+#  -optimizationpasses n
+# ----------------------------------
+-optimizationpasses 5
+
+# ----------------------------------
+#   混淆时不会产生形形色色的类名 
+#   -dontusemixedcaseclassnames
+# ----------------------------------
+#-dontusemixedcaseclassnames
+# ----------------------------------
+#      指定不去忽略非公共的库类
+#  -dontskipnonpubliclibraryclasses
+# ----------------------------------
+#-dontskipnonpubliclibraryclasses
+
+# ----------------------------------
+#       不预校验
+#    -dontpreverify
+# ----------------------------------
+# -dontpreverify
+
+# ----------------------------------
+#      输出生成信息
+#       -verbose
+# ----------------------------------
+-verbose
+
+# ----------------------------------
+#        优化选项
+#   optimizations  {optimization_filter} 
+# ----------------------------------
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+# -----------------
+# modify 修改合并
+# -----------------
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+#--------------------------
+# 保护类型   -keepattributes 说明
+# Exceptions, Signature, Deprecated, SourceFile, SourceDir, LineNumberTable, LocalVariableTable, 
+# LocalVariableTypeTable, Synthetic, EnclosingMethod, RuntimeVisibleAnnotations, RuntimeInvisibleAnnotations, 
+# RuntimeVisibleParameterAnnotations, RuntimeInvisibleParameterAnnotations, and AnnotationDefault
+# --------------------
+-keepattributes **
+-libraryjars <java.home>/lib/rt.jar
+
+# ----------------------
+#  不压缩指定的文件
+#  -dontshrink
+# ----------------------
+-dontshrink
+
+# ----------------------
+#  不优化指定的文件
+#  -dontoptimize
+# -----------------------
+-dontoptimize
+
+# -----------------------
+#  不混淆指定的文件
+#  -dontobfuscate
+# -----------------------
+
+# ----- 混淆包路径 -------
+-repackageclasses ''
+-flattenpackagehierarchy ''
+-target 1.6
+
+# -------- 以下是使用了 roboguice-1.1.2.jar 以及 guice-2.0-no_app.jar 功能需要保护的字段及类相关 --------
+-keep class com.google.inject.Binder
+-keepclassmembers class * {
+    @com.google.inject.Inject <init>(...);
+}
+-keepclassmembers class * {
+    void *(**On*Event); 
+}
+-keepclassmembers class **.R$* {
+    public static <fields>;
+}
+
+# ------ 编译时需要用到的 jar 包
+#-libraryjars D:/Android/adt-bundle-windows/sdk/add-ons/addon-google_apis-google-10/libs/maps.jar
+             
+# ------ 保护 谷歌第三方 jar 包，界面特效 ----------
+-keep class android.support.v4.**
+-dontwarn android.support.v4.**
+
+# ------ 保护百度地址jar包 --------
+-keep class com.baidu.** { *; }
+-dontwarn com.baidu.**
+
+# --- 打包时忽略以下类的警告 --
+-dontwarn com.classpackage.AA
+
+#-keepnames class * implements java.io.Serializable
+# ---------保护所有实体中的字段名称----------
+-keepclassmembers class * implements java.io.Serializable {
+    <fields>;
+}
+
+# --------- 保护类中的所有方法名 ------------
+-keepclassmembers class * {
+	public <methods>;
+}
+-dontskipnonpubliclibraryclassmembers
+
+-ignorewarnings
+
+
+-keep class com.tencent.** {*;}
+-keep class com.tencent.mm.sdk.openapi.WXMediaMessage {*;}
+-keep class com.tencent.mm.sdk.openapi.** implements com.tencent.mm.sdk.openapi.WXMediaMessage$IMediaObject {*;}
+
+-dontwarn com.qq.**  
+-keep class com.qq.** { *;}
+
+-keep class com.baidu.**{*;}
+-keep class vi.com.gdi.bgl.**{*;}
+
+
+-dontwarn com.sina.**  
+-keep class com.sina.** { *;}
+
+-keep class io.vov.vitamio.** {*;}
+
+-keep class com.easemob.** {*;}
+-keep class org.jivesoftware.** {*;}
+-keep class org.apache.** {*;}
+-keep class org.xbill.DNS.** {*;}
+-keep class com.haomee.chat.Utils.SmileUtils {*;}
+
+-keep class pl.droidsonroids.** {*;}
+-keep class com.novell.** {*;}
+-keep class de.measite.smack.** {*;}
+-keep class internal.org.apache.** {*;}
+
+
+-keep class com.mobisage.android.** {*;} 
+-keep interface com.mobisage.android.** {*;} 
+-keep class com.msagecore.** {*;} 
+-keep interface com.msagecore.** {*;} 
+
+
+
+-keep public class com.haomee.liulian.R$*{*;}
+
+
+
+

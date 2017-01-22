@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp" >
+
+    <com.haomee.view.AutoHeightImageView
+        android:id="@+id/item_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" />
+    
+   <FrameLayout
+		android:id="@+id/frame_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/head_button_1"
+        android:orientation="vertical"
+        android:paddingBottom="26dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:layout_marginBottom="-30dp" >
+       
+       <View
+           android:id="@+id/bg_dots"
+           android:layout_width="match_parent"
+           android:layout_height="200dp"
+           android:layout_gravity="bottom"
+           android:background="@drawable/repeat_bg" />
+       
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="用户名"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/user_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center_horizontal"
+            android:text="19"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/user_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center_horizontal"
+            android:text="北京"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+
+            
+            <ImageView
+            android:id="@+id/user_image"
+            android:layout_width="80dip"
+            android:layout_height="80dip"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="center_horizontal" 
+            android:src="@drawable/head_icon_l" />
+
+        <ImageView
+            android:id="@+id/bt_hi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/head_button_hi_w" />
+    </LinearLayout>
+       
+       
+   </FrameLayout> 
+    
+    <RelativeLayout
+        android:id="@+id/frame_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/img_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/loading_icon_wind_red" />
+
+        <TextView
+            android:id="@+id/txt_page_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/img_loading"
+            android:layout_centerHorizontal="true"
+            android:text="1"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="30sp" />
+    </RelativeLayout>
+
+</FrameLayout>
