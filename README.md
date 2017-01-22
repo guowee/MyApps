@@ -1,11 +1,13 @@
 #MyApps
-## CricleProgress ÉèÖÃÔ²»·½ø¶È
-## gameServer Ò»¸ö¼òµ¥µÄSpringMVC ¿ò¼Ü
-## KeyboardLib ×Ô¶¨Òå°²È«¼üÅÌ
-## liulian 
-## SDCard  ¸ù¾İÏµÍ³°æ±¾¶ÁÈ¡sd card Â·¾¶
-## Settings Ê¹ÓÃPreference×Ô¶¨ÒåÉèÖÃÏî
-## WifiReader ¶ÁÈ¡ÊÖ»úÏµÍ³ÎÄ¼şÖĞµÄWiFiÃÜÂë£¨ĞèÒªrootÈ¨ÏŞ£©
+## Android
+### CricleProgress è®¾ç½®åœ†ç¯è¿›åº¦
+### KeyboardLib è‡ªå®šä¹‰å®‰å…¨é”®ç›˜
+### liulian 
+### SDCard  æ ¹æ®ç³»ç»Ÿç‰ˆæœ¬è¯»å–sd card è·¯å¾„
+### Settings ä½¿ç”¨Preferenceè‡ªå®šä¹‰è®¾ç½®é¡¹
+### WifiReader è¯»å–æ‰‹æœºç³»ç»Ÿæ–‡ä»¶ä¸­çš„WiFiå¯†ç ï¼ˆéœ€è¦rootæƒé™ï¼‰
+## JavaWeb
+### gameServer ä¸€ä¸ªç®€å•çš„SpringMVC æ¡†æ¶
  
 
 
