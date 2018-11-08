@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<animated-rotate xmlns:android="http://schemas.android.com/apk/res/android"
-    android:drawable="@drawable/loading_small"
-    android:pivotX="50%"
-    android:pivotY="50%" />
-<!-- From: file:/Users/idea/Documents/资料/泰元项目/liulian/res/drawable/loading_list.xml -->
